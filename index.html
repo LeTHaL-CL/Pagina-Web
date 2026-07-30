@@ -3,194 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multicomercial Araucanía | Estilo Supaste</title>
-    <!-- Carga de fuentes estilo Supaste (Inter + Instrument Serif) -->
+    <title>Multicomercial Araucanía | Soluciones B2B</title>
+    <!-- Fuentes limpias y profesionales -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:italic@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* RESET & BASE - ESTILO SUPASTE (Dark Glassmorphism) */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        /* RESET & BASE - ESTILO LUMINOSO Y RECTO (0px BORDES) */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; border-radius: 0 !important; }
         html { scroll-behavior: smooth; }
         body { 
-            background-color: #080c14; 
-            color: #f1f5f9; 
+            background-color: #ffffff; 
+            color: #0f172a; 
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* TIPOGRAFÍA EDITORIAL PARA TITULARES (Estilo Supaste) */
+        /* TIPOGRAFÍA EDITORIAL PARA ACENTOS */
         .serif-italic { 
             font-family: 'Instrument Serif', serif; 
             font-style: italic; 
             font-weight: 400;
-            color: #38bdf8;
+            color: #0284c7;
         }
 
-        /* LUZ DE FONDO Y DEGRADADOS (Glow Effect) */
-        .glow-bg {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(2, 132, 199, 0.25) 0%, rgba(8, 12, 20, 0) 70%);
-            top: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        /* NAVEGACIÓN GLASSMORPHIC */
+        /* NAVEGACIÓN RECTA Y LUMINOSA */
         nav { 
-            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-            width: 90%; max-width: 1100px;
-            background: rgba(15, 23, 42, 0.65); 
-            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            padding: 12px 28px; display: flex; 
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(10px);
+            padding: 16px 8%; display: flex; 
             justify-content: space-between; align-items: center; 
-            z-index: 1000; border-radius: 100px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            z-index: 1000;
+            border-bottom: 2px solid #0f172a;
         }
-        .logo { font-weight: 700; font-size: 0.95rem; letter-spacing: -0.3px; color: #fff; }
-        .logo span { color: #38bdf8; }
-        .nav-links a { color: #94a3b8; text-decoration: none; margin-left: 20px; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
-        .nav-links a:hover { color: #fff; }
+        .logo { font-weight: 800; font-size: 1rem; letter-spacing: -0.3px; color: #0f172a; text-transform: uppercase; }
+        .logo span { color: #0284c7; }
+        .nav-links a { color: #334155; text-decoration: none; margin-left: 24px; font-size: 0.85rem; font-weight: 600; transition: color 0.2s; }
+        .nav-links a:hover { color: #0284c7; }
         .btn-nav { 
-            background: linear-gradient(135deg, #0284c7, #2563eb); 
-            color: #fff !important; padding: 8px 18px; border-radius: 50px; 
+            background: #0f172a; 
+            color: #fff !important; padding: 10px 20px; 
             font-size: 0.85rem !important; font-weight: 600 !important;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.2s, box-shadow 0.2s !important;
+            border: none;
+            transition: background 0.2s !important;
         }
-        .btn-nav:hover { transform: scale(1.03); box-shadow: 0 0 20px rgba(2, 132, 199, 0.5); }
+        .btn-nav:hover { background: #0284c7 !important; }
 
-        /* HERO SECTION CON MOVIMIENTO DE FOTOS SUTIL DE FONDO */
-        .hero { position: relative; min-height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 140px 20px 60px; overflow: hidden; }
+        /* HERO SECTION LUMINOSA CON CARRUSEL DE FONDO Y CAPA SUAVE */
+        .hero { position: relative; min-height: 85vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 120px 20px 60px; overflow: hidden; background: #f8fafc; }
         
-        .slideshow { position: absolute; width: 100%; height: 100%; z-index: 0; top: 0; left: 0; filter: brightness(0.35) contrast(1.1); }
+        .slideshow { position: absolute; width: 100%; height: 100%; z-index: 0; top: 0; left: 0; opacity: 0.15; }
         .slide { position: absolute; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; animation: anim 16s infinite; }
         .slide:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200'); animation-delay: 0s; }
         .slide:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200'); animation-delay: 4s; }
         .slide:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200'); animation-delay: 8s; }
         .slide:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200'); animation-delay: 12s; }
-        @keyframes anim { 0%, 100% { opacity: 0; transform: scale(1); } 10%, 25% { opacity: 0.6; transform: scale(1.03); } 35% { opacity: 0; } }
+        @keyframes anim { 0%, 100% { opacity: 0; transform: scale(1); } 10%, 25% { opacity: 1; transform: scale(1.03); } 35% { opacity: 0; } }
 
-        .hero-content { position: relative; z-index: 2; max-width: 800px; }
+        .hero-content { position: relative; z-index: 2; max-width: 850px; }
         .badge-hero { 
-            display: inline-flex; align-items: center; gap: 8px;
-            background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.3); 
-            color: #38bdf8; padding: 6px 16px; border-radius: 100px; font-size: 0.8rem; font-weight: 500; margin-bottom: 24px;
-            backdrop-filter: blur(10px);
+            display: inline-block;
+            background: #e0f2fe; border: 1px solid #0284c7; 
+            color: #0369a1; padding: 6px 16px; font-size: 0.8rem; font-weight: 700; margin-bottom: 24px;
+            text-transform: uppercase; letter-spacing: 0.5px;
         }
-        .hero h1 { font-size: 3.5rem; font-weight: 600; letter-spacing: -1.5px; margin-bottom: 20px; line-height: 1.1; }
-        .hero p { font-size: 1.15rem; color: #94a3b8; margin-bottom: 35px; font-weight: 300; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -1.5px; color: #0f172a; margin-bottom: 20px; line-height: 1.1; }
+        .hero p { font-size: 1.2rem; color: #475569; margin-bottom: 35px; font-weight: 400; max-width: 650px; margin-left: auto; margin-right: auto; }
 
-        /* BOTONES GLASS / GRADIENT */
+        /* BOTONES RECTOS */
         .btn-group { display: flex; gap: 15px; justify-content: center; }
         .btn-primary { 
-            background: linear-gradient(135deg, #0284c7, #2563eb); color: #fff; padding: 12px 28px; border-radius: 50px; 
-            font-size: 0.9rem; font-weight: 600; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); 
-            box-shadow: 0 10px 25px rgba(2, 132, 199, 0.4); transition: 0.2s ease;
+            background: #0284c7; color: #fff; padding: 14px 32px; 
+            font-size: 0.9rem; font-weight: 700; text-decoration: none; border: 2px solid #0284c7; 
+            transition: all 0.2s ease; text-transform: uppercase; letter-spacing: 0.5px;
         }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 15px 30px rgba(2, 132, 199, 0.6); }
-        .btn-glass { 
-            background: rgba(255, 255, 255, 0.05); color: #fff; padding: 12px 28px; border-radius: 50px; 
-            font-size: 0.9rem; font-weight: 500; text-decoration: none; border: 1px solid rgba(255, 255, 255, 0.1); 
-            backdrop-filter: blur(10px); transition: 0.2s ease;
+        .btn-primary:hover { background: #0369a1; border-color: #0369a1; }
+        .btn-outline { 
+            background: transparent; color: #0f172a; padding: 14px 32px; 
+            font-size: 0.9rem; font-weight: 700; text-decoration: none; border: 2px solid #0f172a; 
+            transition: all 0.2s ease; text-transform: uppercase; letter-spacing: 0.5px;
         }
-        .btn-glass:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.25); }
+        .btn-outline:hover { background: #0f172a; color: #fff; }
 
-        /* SECCIONES Y TARJETAS ESTILO CRISTAL (GLASS CARDS) */
-        section { padding: 100px 8%; position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
+        /* SECCIONES Y ESTRUCTURA */
+        section { padding: 90px 8%; position: relative; max-width: 1200px; margin: 0 auto; }
+        .bg-light { background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
         
-        .section-header { text-align: center; max-width: 650px; margin: 0 auto 60px auto; }
-        .section-header h2 { font-size: 2.5rem; font-weight: 600; letter-spacing: -1px; margin-bottom: 12px; }
-        .section-header p { color: #64748b; font-size: 1rem; font-weight: 300; }
+        .section-header { text-align: left; max-width: 700px; margin-bottom: 50px; border-left: 4px solid #0284c7; padding-left: 20px; }
+        .section-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.5px; color: #0f172a; }
+        .section-header p { color: #64748b; font-size: 1rem; margin-top: 6px; }
 
-        /* GRILLAS GLASSMORPHIC CON BORDES FINOS Y BRILLO */
+        /* GRILLAS BORDES RECTOS */
         .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-        .glass-card { 
-            background: rgba(15, 23, 42, 0.5); 
-            border: 1px solid rgba(255, 255, 255, 0.08); 
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            padding: 30px; border-radius: 20px; transition: all 0.3s ease;
-            position: relative; overflow: hidden;
+        .card-sharp { 
+            background: #ffffff; 
+            border: 1px solid #e2e8f0; 
+            padding: 30px; transition: all 0.2s ease;
         }
-        .glass-card:hover { 
-            border-color: rgba(56, 189, 248, 0.4); 
-            transform: translateY(-5px); 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-            background: rgba(15, 23, 42, 0.7);
+        .card-sharp:hover { 
+            border-color: #0284c7; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
-        .glass-card svg { width: 32px; height: 32px; fill: #38bdf8; margin-bottom: 18px; }
-        .glass-card h4 { font-size: 1.1rem; color: #fff; margin-bottom: 10px; font-weight: 600; }
-        .glass-card p { font-size: 0.88rem; color: #94a3b8; font-weight: 300; }
+        .card-sharp svg { width: 36px; height: 36px; fill: #0284c7; margin-bottom: 16px; }
+        .card-sharp h4 { font-size: 1.1rem; color: #0f172a; margin-bottom: 8px; font-weight: 700; }
+        .card-sharp p { font-size: 0.9rem; color: #64748b; }
 
-        /* CARDS CON IMÁGENES Y ESTILO GLASS */
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .glass-card-img { 
-            background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); 
-            border-radius: 20px; overflow: hidden; transition: all 0.3s ease;
-        }
-        .glass-card-img:hover { border-color: rgba(56, 189, 248, 0.4); transform: translateY(-5px); }
-        .glass-card-img img { width: 100%; height: 220px; object-fit: cover; opacity: 0.8; transition: opacity 0.3s; }
-        .glass-card-img:hover img { opacity: 1; }
-        .glass-card-body { padding: 25px; }
-        .glass-card-body h3 { font-size: 1.3rem; color: #fff; margin-bottom: 10px; font-weight: 600; }
-        .glass-card-body p { color: #94a3b8; font-size: 0.9rem; font-weight: 300; }
+        /* CARDS CON IMÁGENES */
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card-img-sharp { background: #ffffff; border: 1px solid #e2e8f0; }
+        .card-img-sharp img { width: 100%; height: 230px; object-fit: cover; display: block; }
+        .card-img-body { padding: 30px; }
+        .card-img-body h3 { font-size: 1.3rem; color: #0f172a; margin-bottom: 10px; font-weight: 700; }
+        .card-img-body p { color: #64748b; font-size: 0.95rem; }
 
-        /* BANNER MERCADO PÚBLICO GLASS */
-        .badge-publico-glass { 
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(2, 132, 199, 0.2)); 
-            border: 1px solid rgba(56, 189, 248, 0.3); 
-            border-radius: 20px; padding: 35px; display: flex; align-items: center; gap: 25px; margin-top: 40px; 
-            backdrop-filter: blur(12px);
+        /* BANNER MERCADO PÚBLICO */
+        .banner-publico { 
+            background: #0f172a; color: #fff; padding: 40px; 
+            display: flex; align-items: center; gap: 25px; margin-top: 40px; 
+            border-left: 6px solid #0284c7;
         }
-        .badge-publico-glass svg { width: 42px; height: 42px; fill: #38bdf8; flex-shrink: 0; }
+        .banner-publico svg { width: 48px; height: 48px; fill: #38bdf8; flex-shrink: 0; }
 
-        /* PASOS DE PROCESO (ESTILO APP TIMELINE) */
+        /* PASOS DE PROCESO */
         .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .step-card { 
-            background: rgba(15, 23, 42, 0.3); border: 1px solid rgba(255, 255, 255, 0.05); 
-            padding: 25px; border-radius: 16px; position: relative;
+        .step-sharp { background: #f8fafc; border: 1px solid #e2e8f0; padding: 30px; position: relative; }
+        .step-num { font-size: 2rem; font-weight: 800; color: #cbd5e1; position: absolute; top: 15px; right: 20px; }
+        .step-sharp h4 { font-size: 1.1rem; color: #0f172a; margin-bottom: 8px; font-weight: 700; }
+        .step-sharp p { font-size: 0.88rem; color: #64748b; }
+
+        /* ACORDEÓN DE PREGUNTAS DESPLEGABLES (FAQ) */
+        .faq-accordion { display: flex; flex-direction: column; gap: 15px; }
+        details { 
+            background: #ffffff; 
+            border: 1px solid #e2e8f0; 
+            padding: 20px; 
+            cursor: pointer;
+            transition: border-color 0.2s;
         }
-        .step-num { font-size: 2rem; font-weight: 700; color: rgba(56, 189, 248, 0.3); position: absolute; top: 15px; right: 20px; }
-        .step-card h4 { font-size: 1rem; color: #fff; margin-bottom: 8px; font-weight: 600; }
-        .step-card p { font-size: 0.85rem; color: #94a3b8; font-weight: 300; }
+        details:hover { border-color: #0284c7; }
+        details[open] { border-color: #0284c7; background: #f8fafc; }
+        summary { 
+            font-weight: 700; 
+            font-size: 1.05rem; 
+            color: #0f172a; 
+            list-style: none; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { 
+            content: '+'; 
+            font-size: 1.5rem; 
+            color: #0284c7; 
+            font-weight: 400; 
+            line-height: 1;
+        }
+        details[open] summary::after { content: '−'; }
+        details p { 
+            margin-top: 15px; 
+            color: #475569; 
+            font-size: 0.95rem; 
+            border-top: 1px dashed #cbd5e1; 
+            padding-top: 15px;
+        }
 
-        /* PREGUNTAS FRECUENTES (FAQ GLASS) */
-        .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .faq-card { background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); padding: 25px; border-radius: 16px; text-align: left; }
-        .faq-card h4 { font-size: 1rem; color: #fff; margin-bottom: 8px; font-weight: 600; }
-        .faq-card p { font-size: 0.88rem; color: #94a3b8; font-weight: 300; }
-
-        /* FORMULARIO Y CONTACTO INTEGRADO */
+        /* FORMULARIO Y CONTACTO */
         .contact-box { 
-            background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); 
-            padding: 40px; border-radius: 24px; backdrop-filter: blur(16px);
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; text-align: left;
+            background: #f8fafc; border: 1px solid #e2e8f0; 
+            padding: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;
         }
-        .contact-info h3 { font-size: 1.6rem; color: #fff; margin-bottom: 12px; font-weight: 600; }
-        .contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; color: #cbd5e1; font-size: 0.95rem; }
-        .contact-item svg { width: 20px; height: 20px; fill: #38bdf8; }
+        .contact-info h3 { font-size: 1.6rem; color: #0f172a; margin-bottom: 12px; font-weight: 800; }
+        .contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; color: #334155; font-size: 0.95rem; font-weight: 600; }
+        .contact-item svg { width: 22px; height: 22px; fill: #0284c7; }
 
-        .form-glass { display: flex; flex-direction: column; gap: 15px; }
-        .form-glass input, .form-glass textarea { 
-            width: 100%; background: rgba(8, 12, 20, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); 
-            padding: 12px 16px; border-radius: 10px; color: #fff; font-size: 0.9rem; outline: none; transition: border 0.2s;
+        .form-sharp { display: flex; flex-direction: column; gap: 15px; }
+        .form-sharp input, .form-sharp textarea { 
+            width: 100%; background: #ffffff; border: 1px solid #cbd5e1; 
+            padding: 14px; color: #0f172a; font-size: 0.9rem; outline: none; transition: border-color 0.2s;
         }
-        .form-glass input:focus, .form-glass textarea:focus { border-color: #38bdf8; }
+        .form-sharp input:focus, .form-sharp textarea:focus { border-color: #0284c7; }
 
-        footer { text-align: center; padding: 40px 20px; font-size: 0.85rem; color: #64748b; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 30px 20px; font-size: 0.85rem; }
     </style>
 </head>
 <body>
 
-    <div class="glow-bg"></div>
-
-    <!-- Navegación Flotante Glassmorphic -->
+    <!-- Navegación Estilo Recto & Luminoso -->
     <nav>
         <div class="logo">MULTICOMERCIAL <span>ARAUCANÍA</span></div>
         <div class="nav-links">
@@ -202,7 +203,7 @@
         </div>
     </nav>
 
-    <!-- Hero / Portada Supaste Style -->
+    <!-- Hero / Portada Clara -->
     <header class="hero">
         <div class="slideshow">
             <div class="slide"></div>
@@ -212,15 +213,12 @@
         </div>
         
         <div class="hero-content">
-            <div class="badge-hero">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="#38bdf8"><circle cx="12" cy="12" r="10"/></svg>
-                Proveedor Registrado en Mercado Público
-            </div>
+            <div class="badge-hero">Proveedor Acreditado Mercado Público</div>
             <h1>Abastecimiento integral <br>con <span class="serif-italic">eficiencia B2B.</span></h1>
-            <p>Soluciones operativas, insumos críticos y logística ágil para instituciones públicas y empresas en Chile.</p>
+            <p>Insumos críticos, equipamiento corporativo y logística garantizada para el sector público y privado en Chile.</p>
             <div class="btn-group">
                 <a href="#contacto" class="btn-primary">Solicitar Cotización</a>
-                <a href="#suministros" class="btn-glass">Ver Catálogo</a>
+                <a href="#suministros" class="btn-outline">Ver Catálogo</a>
             </div>
         </div>
     </header>
@@ -228,126 +226,138 @@
     <!-- Líneas de Suministros -->
     <section id="suministros">
         <div class="section-header">
-            <h2>Líneas de <span class="serif-italic">Suministro.</span></h2>
-            <p>Catálogo unificado para cubrir las necesidades operativas institucionales.</p>
+            <h2>Líneas de <span class="serif-italic">Suministro</span></h2>
+            <p>Catálogo unificado de alta demanda para abastecimiento institucional.</p>
         </div>
 
         <div class="grid-4">
-            <div class="glass-card">
+            <div class="card-sharp">
                 <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
                 <h4>Aseo e Higiene</h4>
-                <p>Insumos institucionales, desinfectantes industriales y artículos de limpieza de alto tráfico.</p>
+                <p>Insumos institucionales, desinfectantes industriales y químicos de limpieza.</p>
             </div>
-            <div class="glass-card">
+            <div class="card-sharp">
                 <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
                 <h4>Oficina & Papelería</h4>
-                <p>Suministros de escritorio, artículos impresos, papelería e insumos administrativos.</p>
+                <p>Artículos de escritorio, impresos, papelería e insumos administrativos.</p>
             </div>
-            <div class="glass-card">
+            <div class="card-sharp">
                 <svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 5h16v11H4V5z"/></svg>
                 <h4>Tecnología & Toners</h4>
-                <p>Equipamiento informático, toners, consumibles impresos y accesorios tecnológicos.</p>
+                <p>Equipamiento informático, toners, consumibles y accesorios tecnológicos.</p>
             </div>
-            <div class="glass-card">
+            <div class="card-sharp">
                 <svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.45l8.15 14.1H3.85L12 5.45zM11 10h2v4h-2zm0 5h2v2h-2z"/></svg>
                 <h4>Seguridad & EPP</h4>
-                <p>Elementos de protección personal, señalética de seguridad y vestuario de trabajo.</p>
+                <p>Elementos de protección personal, señalética y vestuario corporativo.</p>
             </div>
         </div>
     </section>
 
     <!-- Sectores Especializados -->
-    <section id="sectores">
-        <div class="section-header">
-            <h2>Modelos de <span class="serif-italic">Atención.</span></h2>
-            <p>Especialización según el marco normativo y operativo de cada cliente.</p>
-        </div>
+    <div class="bg-light">
+        <section id="sectores">
+            <div class="section-header">
+                <h2>Sectores de <span class="serif-italic">Atención</span></h2>
+                <p>Adaptados a la normativa pública y la agilidad requerida por el sector privado.</p>
+            </div>
 
-        <div class="grid-2">
-            <div class="glass-card-img">
-                <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?q=80&w=600" alt="Sector Público">
-                <div class="glass-card-body">
-                    <h3>Sector Público & Licitaciones</h3>
-                    <p>Atención fluida a requerimientos estatales, compras directas, licitaciones y órdenes de compra con cumplimiento garantizado.</p>
+            <div class="grid-2">
+                <div class="card-img-sharp">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?q=80&w=600" alt="Sector Público">
+                    <div class="card-img-body">
+                        <h3>Sector Público y Licitaciones</h3>
+                        <p>Atención fluida a requerimientos estatales, compras directas, licitaciones oficiales y órdenes de compra con cumplimiento oportuno.</p>
+                    </div>
+                </div>
+                <div class="card-img-sharp">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600" alt="Sector Privado">
+                    <div class="card-img-body">
+                        <h3>Sector Privado y Empresas</h3>
+                        <p>Alianzas comerciales B2B, atención personalizada, condiciones de crédito sujetas a evaluación y distribución rápida.</p>
+                    </div>
                 </div>
             </div>
-            <div class="glass-card-img">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600" alt="Sector Privado">
-                <div class="glass-card-body">
-                    <h3>Sector Privado & Corporativos</h3>
-                    <p>Alianzas comerciales B2B, atención personalizada, crédito sujeto a evaluación y agilidad en cadena de abastecimiento.</p>
+
+            <div class="banner-publico">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                <div>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff;">Acreditados en Mercado Público</h3>
+                    <p style="color: #94a3b8; font-size: 0.95rem; margin-top: 4px;">Atendemos Órdenes de Compra de Municipalidades, Servicios de Salud y Organismos del Estado.</p>
                 </div>
             </div>
-        </div>
-
-        <div class="badge-publico-glass">
-            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-            <div style="text-align: left;">
-                <h3 style="font-size: 1.2rem; font-weight: 600; color: #fff;">Acreditados en Mercado Público</h3>
-                <p style="color: #94a3b8; font-size: 0.9rem; font-weight: 300;">Cumplimiento riguroso en tiempos de despacho, facturación electrónica y convenios.</p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <!-- Proceso de Trabajo -->
     <section id="proceso">
         <div class="section-header">
-            <h2>Gestión en <span class="serif-italic">4 pasos.</span></h2>
-            <p>Flujo simple y transparente desde el primer requerimiento hasta la entrega.</p>
+            <h2>Proceso de <span class="serif-italic">Trabajo</span></h2>
+            <p>Metodología transparente para asegurar la correcta entrega de pedidos.</p>
         </div>
 
         <div class="process-grid">
-            <div class="step-card">
+            <div class="step-sharp">
                 <span class="step-num">01</span>
                 <h4>Requerimiento</h4>
-                <p>Envío de ficha técnica, lista de insumos o número de licitación pública.</p>
+                <p>Envío de lista de insumos, ficha técnica o número de licitación pública.</p>
             </div>
-            <div class="step-card">
+            <div class="step-sharp">
                 <span class="step-num">02</span>
                 <h4>Cotización</h4>
-                <p>Emisión de propuesta comercial detallada en un plazo máximo de 24 horas.</p>
+                <p>Emisión de propuesta comercial formal detallada en tiempo récord.</p>
             </div>
-            <div class="step-card">
+            <div class="step-sharp">
                 <span class="step-num">03</span>
-                <h4>Adjudicación / OC</h4>
-                <p>Recepción de Orden de Compra oficial o emisión de facturación acuerdo.</p>
+                <h4>Orden de Compra</h4>
+                <p>Recepción de la OC aprobada o emisión de facturación de compromiso.</p>
             </div>
-            <div class="step-card">
+            <div class="step-sharp">
                 <span class="step-num">04</span>
-                <h4>Despacho</h4>
-                <p>Entrega en dependencias indicadas con guía de despacho y recepción conforme.</p>
+                <h4>Entrega</h4>
+                <p>Despacho directo en dependencias indicadas con guía conforme.</p>
             </div>
         </div>
     </section>
 
-    <!-- Preguntas Frecuentes -->
-    <section id="faq">
-        <div class="section-header">
-            <h2>Preguntas <span class="serif-italic">Frecuentes.</span></h2>
-        </div>
+    <!-- Preguntas Frecuentes Desplegables (Accordion) -->
+    <div class="bg-light">
+        <section id="faq">
+            <div class="section-header">
+                <h2>Preguntas <span class="serif-italic">Frecuentes</span></h2>
+                <p>Haz clic en cada pregunta para desplegar la respuesta.</p>
+            </div>
 
-        <div class="faq-grid">
-            <div class="faq-card">
-                <h4>¿Aceptan órdenes de compra a través de Mercado Público?</h4>
-                <p>Sí, operamos regularmente con la plataforma ChileCompra mediante órdenes de compra emitidas por organismos estatales.</p>
+            <div class="faq-accordion">
+                <details>
+                    <summary>¿Aceptan órdenes de compra a través de Mercado Público?</summary>
+                    <p>Sí, estamos acreditados como proveedores del Estado y operamos regularmente a través de ChileCompra recibiendo Órdenes de Compra (OC) oficiales.</p>
+                </details>
+
+                <details>
+                    <summary>¿Cuál es el tiempo de respuesta para enviar una cotización?</summary>
+                    <p>Procesamos solicitudes formales en un plazo de 2 a 24 horas hábiles, dependiendo del volumen de ítems requeridos.</p>
+                </details>
+
+                <details>
+                    <summary>¿Realizan despachos fuera de la Región de la Araucanía?</summary>
+                    <p>Sí, coordinamos logística comercial y despacho según el acuerdo y factibilidad previa establecida con la institución o empresa.</p>
+                </details>
+
+                <details>
+                    <summary>¿Emiten factura electrónica y crédito comercial?</summary>
+                    <p>Sí, emitimos facturación electrónica inmediata. Las condiciones de crédito para empresas privadas quedan sujetas a evaluación comercial previa.</p>
+                </details>
             </div>
-            <div class="faq-card">
-                <h4>¿Cuál es el tiempo de respuesta para una cotización?</h4>
-                <p>Procesamos solicitudes formales en un plazo de 2 a 24 horas hábiles según el volumen o complejidad técnica.</p>
-            </div>
-            <div class="faq-card">
-                <h4>¿Tienen capacidad de despacho regional?</h4>
-                <p>Sí, coordinamos logística comercial para entregas directas según acuerdo previo de factibilidad.</p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <!-- Contacto Directo -->
     <section id="contacto">
         <div class="contact-box">
             <div class="contact-info">
-                <h3>Inicie su <span class="serif-italic">cotización.</span></h3>
-                <p style="color: #94a3b8; margin-bottom: 25px; font-weight: 300; font-size: 0.9rem;">Horario comercial: Lunes a Viernes (08:30 a 18:30 hrs).</p>
+                <h3>Solicitud de <span class="serif-italic">Cotización</span></h3>
+                <p style="color: #64748b; margin-bottom: 25px; font-size: 0.95rem;">Atención comercial de Lunes a Viernes (08:30 a 18:30 hrs).</p>
 
                 <div class="contact-item">
                     <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -358,15 +368,15 @@
                     <span>+56 9 7756 6368</span>
                 </div>
 
-                <a href="https://wa.me/56977566368" target="_blank" class="btn-primary" style="display: inline-block; margin-top: 15px; text-align: center;">Escribir a WhatsApp</a>
+                <a href="https://wa.me/56977566368" target="_blank" class="btn-primary" style="display: inline-block; margin-top: 15px; text-align: center;">Contactar por WhatsApp</a>
             </div>
 
-            <form class="form-glass" action="#" method="POST" onsubmit="event.preventDefault(); alert('Solicitud enviada exitosamente.');">
+            <form class="form-sharp" action="#" method="POST" onsubmit="event.preventDefault(); alert('Solicitud enviada exitosamente.');">
                 <input type="text" placeholder="Nombre / Empresa / Institución" required>
                 <input type="email" placeholder="Correo electrónico institucional" required>
                 <input type="text" placeholder="Teléfono de contacto">
                 <textarea rows="4" placeholder="Detalle los insumos requeridos..." required></textarea>
-                <button type="submit" class="btn-primary" style="cursor: pointer; border: none;">Enviar Requerimiento</button>
+                <button type="submit" class="btn-primary" style="cursor: pointer;">Enviar Requerimiento</button>
             </form>
         </div>
     </section>
