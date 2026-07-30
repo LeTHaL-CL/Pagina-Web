@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sitio en Construcción</title>
+    <title>Multicomercial Araucanía Limitada | Sitio en Construcción</title>
     <style>
         * {
             box-sizing: border-box;
@@ -28,7 +28,7 @@
             padding: 40px 30px;
             border-radius: 16px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            max-width: 480px;
+            max-width: 520px;
             width: 100%;
             border: 1px solid #334155;
         }
@@ -38,15 +38,31 @@
             margin-bottom: 16px;
         }
 
+        .company-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #38bdf8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .location {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
         h1 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             margin-bottom: 12px;
             color: #f1f5f9;
         }
 
         p {
-            color: #94a3b8;
+            color: #cbd5e1;
             font-size: 1rem;
             line-height: 1.6;
             margin-bottom: 24px;
@@ -80,8 +96,13 @@
 
     <div class="card">
         <div class="icon">🚧</div>
+        
+        <div class="company-name">Multicomercial Araucanía Limitada</div>
+        <div class="location">Ercilla, Novena Región</div>
+
         <h1 id="saludo">Sitio en Construcción</h1>
-        <p>Estamos trabajando duro para ofrecerte una gran experiencia. ¡Regresa pronto para ver todas las novedades!</p>
+        
+        <p>Estamos trabajando duro para ofrecerte una gran experiencia. ¡Regresa pronto para ver todas las novedades de nuestro sitio web!</p>
         
         <div class="status-container">
             <span class="badge">Próximamente</span>
@@ -90,14 +111,13 @@
     </div>
 
     <script>
-        // JavaScript ejecutado en el navegador del usuario para dinamismo sin PHP
         function actualizarPagina() {
             const fecha = new Date();
             const hora = fecha.getHours();
             const saludoElemento = document.getElementById('saludo');
             const relojElemento = document.getElementById('reloj');
 
-            let saludoTexto = "¡Hola! Sitio en Construcción";
+            let saludoTexto = "Sitio en Construcción";
             if (hora >= 6 && hora < 12) {
                 saludoTexto = "¡Buenos días! Sitio en Construcción";
             } else if (hora >= 12 && hora < 20) {
@@ -107,7 +127,7 @@
             }
 
             saludoElemento.textContent = saludoTexto;
-            relojElemento.textContent = "Hora local del visitante: " + fecha.toLocaleTimeString('es-ES');
+            relojElemento.textContent = "Hora local: " + fecha.toLocaleTimeString('es-CL');
         }
 
         actualizarPagina();
