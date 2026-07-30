@@ -3,114 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multicomercial Araucanía | Soluciones B2B y Sector Público</title>
+    <title>Multicomercial Araucanía | Estilo Supaste</title>
+    <!-- Carga de fuentes estilo Supaste (Inter + Instrument Serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:italic@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* RESET & ESTILO TIPO SUPABASE */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; }
+        /* RESET & BASE - ESTILO SUPASTE (Dark Glassmorphism) */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         html { scroll-behavior: smooth; }
-        body { background-color: #f8fafc; color: #0f172a; line-height: 1.6; }
-
-        /* NAVEGACIÓN ESTILO TECH (Limpia y con borde inferior delgado) */
-        nav { 
-            position: fixed; top: 0; width: 100%; 
-            background: rgba(255, 255, 255, 0.85); 
-            backdrop-filter: blur(12px); 
-            padding: 16px 8%; display: flex; 
-            justify-content: space-between; align-items: center; 
-            z-index: 1000; border-bottom: 1px solid #e2e8f0;
+        body { 
+            background-color: #080c14; 
+            color: #f1f5f9; 
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-        .logo { font-weight: 800; font-size: 1.1rem; color: #0f172a; letter-spacing: -0.5px; }
-        .logo span { color: #0284c7; }
-        .nav-links a { color: #475569; text-decoration: none; margin-left: 24px; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
-        .nav-links a:hover { color: #0284c7; }
-        .btn-nav { background: #0f172a; color: #fff !important; padding: 8px 18px; border-radius: 6px; font-weight: 600 !important; }
-        .btn-nav:hover { background: #0284c7 !important; }
 
-        /* HERO CON CARRUSEL DE FONDO Y TEXTO TIPO 'SUPABASE' */
-        .hero { position: relative; height: 85vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
-        .slideshow { position: absolute; width: 100%; height: 100%; z-index: 1; top: 0; left: 0; }
+        /* TIPOGRAFÍA EDITORIAL PARA TITULARES (Estilo Supaste) */
+        .serif-italic { 
+            font-family: 'Instrument Serif', serif; 
+            font-style: italic; 
+            font-weight: 400;
+            color: #38bdf8;
+        }
+
+        /* LUZ DE FONDO Y DEGRADADOS (Glow Effect) */
+        .glow-bg {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(2, 132, 199, 0.25) 0%, rgba(8, 12, 20, 0) 70%);
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* NAVEGACIÓN GLASSMORPHIC */
+        nav { 
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 1100px;
+            background: rgba(15, 23, 42, 0.65); 
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            padding: 12px 28px; display: flex; 
+            justify-content: space-between; align-items: center; 
+            z-index: 1000; border-radius: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .logo { font-weight: 700; font-size: 0.95rem; letter-spacing: -0.3px; color: #fff; }
+        .logo span { color: #38bdf8; }
+        .nav-links a { color: #94a3b8; text-decoration: none; margin-left: 20px; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: #fff; }
+        .btn-nav { 
+            background: linear-gradient(135deg, #0284c7, #2563eb); 
+            color: #fff !important; padding: 8px 18px; border-radius: 50px; 
+            font-size: 0.85rem !important; font-weight: 600 !important;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+        .btn-nav:hover { transform: scale(1.03); box-shadow: 0 0 20px rgba(2, 132, 199, 0.5); }
+
+        /* HERO SECTION CON MOVIMIENTO DE FOTOS SUTIL DE FONDO */
+        .hero { position: relative; min-height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 140px 20px 60px; overflow: hidden; }
+        
+        .slideshow { position: absolute; width: 100%; height: 100%; z-index: 0; top: 0; left: 0; filter: brightness(0.35) contrast(1.1); }
         .slide { position: absolute; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; animation: anim 16s infinite; }
         .slide:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200'); animation-delay: 0s; }
         .slide:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200'); animation-delay: 4s; }
         .slide:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200'); animation-delay: 8s; }
         .slide:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200'); animation-delay: 12s; }
-        @keyframes anim { 0%, 100% { opacity: 0; transform: scale(1); } 10%, 25% { opacity: 1; transform: scale(1.03); } 35% { opacity: 0; } }
+        @keyframes anim { 0%, 100% { opacity: 0; transform: scale(1); } 10%, 25% { opacity: 0.6; transform: scale(1.03); } 35% { opacity: 0; } }
 
-        .overlay { position: absolute; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.9) 100%); z-index: 2; }
-        .hero-content { position: relative; z-index: 3; max-width: 850px; padding: 20px; color: #fff; }
-        .badge-hero { display: inline-block; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; }
-        .hero h1 { font-size: 3.2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 16px; line-height: 1.15; }
-        .hero p { font-size: 1.2rem; color: #94a3b8; margin-bottom: 32px; max-width: 650px; margin-left: auto; margin-right: auto; }
+        .hero-content { position: relative; z-index: 2; max-width: 800px; }
+        .badge-hero { 
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.3); 
+            color: #38bdf8; padding: 6px 16px; border-radius: 100px; font-size: 0.8rem; font-weight: 500; margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+        }
+        .hero h1 { font-size: 3.5rem; font-weight: 600; letter-spacing: -1.5px; margin-bottom: 20px; line-height: 1.1; }
+        .hero p { font-size: 1.15rem; color: #94a3b8; margin-bottom: 35px; font-weight: 300; max-width: 600px; margin-left: auto; margin-right: auto; }
 
-        /* BOTONES */
+        /* BOTONES GLASS / GRADIENT */
         .btn-group { display: flex; gap: 15px; justify-content: center; }
-        .btn-primary { background: #0284c7; color: #fff; padding: 12px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: 0.2s; }
-        .btn-primary:hover { background: #0369a1; }
-        .btn-secondary { background: rgba(255,255,255,0.1); color: #fff; padding: 12px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: 0.2s; }
-        .btn-secondary:hover { background: rgba(255,255,255,0.2); }
+        .btn-primary { 
+            background: linear-gradient(135deg, #0284c7, #2563eb); color: #fff; padding: 12px 28px; border-radius: 50px; 
+            font-size: 0.9rem; font-weight: 600; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); 
+            box-shadow: 0 10px 25px rgba(2, 132, 199, 0.4); transition: 0.2s ease;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 15px 30px rgba(2, 132, 199, 0.6); }
+        .btn-glass { 
+            background: rgba(255, 255, 255, 0.05); color: #fff; padding: 12px 28px; border-radius: 50px; 
+            font-size: 0.9rem; font-weight: 500; text-decoration: none; border: 1px solid rgba(255, 255, 255, 0.1); 
+            backdrop-filter: blur(10px); transition: 0.2s ease;
+        }
+        .btn-glass:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.25); }
 
-        /* SECCIONES Y CONTENEDORES */
-        section { padding: 90px 10%; }
-        .bg-white { background: #ffffff; }
-        .bg-slate { background: #f1f5f9; }
+        /* SECCIONES Y TARJETAS ESTILO CRISTAL (GLASS CARDS) */
+        section { padding: 100px 8%; position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
+        
         .section-header { text-align: center; max-width: 650px; margin: 0 auto 60px auto; }
-        .section-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.5px; color: #0f172a; margin-bottom: 10px; }
-        .section-header p { color: #64748b; font-size: 1rem; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 600; letter-spacing: -1px; margin-bottom: 12px; }
+        .section-header p { color: #64748b; font-size: 1rem; font-weight: 300; }
 
-        /* GRILLA DE CATEGORÍAS DE PRODUCTOS (NUEVO CONTENIDO) */
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .card-cat { background: #fff; padding: 25px; border-radius: 12px; border: 1px solid #e2e8f0; transition: all 0.2s ease; }
-        .card-cat:hover { border-color: #0284c7; transform: translateY(-4px); box-shadow: 0 12px 24px -10px rgba(0,0,0,0.08); }
-        .card-cat svg { width: 32px; height: 32px; fill: #0284c7; margin-bottom: 15px; }
-        .card-cat h4 { font-size: 1.1rem; color: #0f172a; margin-bottom: 8px; font-weight: 700; }
-        .card-cat p { font-size: 0.88rem; color: #64748b; }
+        /* GRILLAS GLASSMORPHIC CON BORDES FINOS Y BRILLO */
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        .glass-card { 
+            background: rgba(15, 23, 42, 0.5); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            padding: 30px; border-radius: 20px; transition: all 0.3s ease;
+            position: relative; overflow: hidden;
+        }
+        .glass-card:hover { 
+            border-color: rgba(56, 189, 248, 0.4); 
+            transform: translateY(-5px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            background: rgba(15, 23, 42, 0.7);
+        }
+        .glass-card svg { width: 32px; height: 32px; fill: #38bdf8; margin-bottom: 18px; }
+        .glass-card h4 { font-size: 1.1rem; color: #fff; margin-bottom: 10px; font-weight: 600; }
+        .glass-card p { font-size: 0.88rem; color: #94a3b8; font-weight: 300; }
 
-        /* TARJETAS CON FOTOS DESTACADAS (SECTORES) */
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .card-sector { background: #fff; border-radius: 16px; border: 1px solid #e2e8f0; overflow: hidden; display: flex; flex-direction: column; }
-        .card-sector img { width: 100%; height: 220px; object-fit: cover; }
-        .card-sector-body { padding: 30px; }
-        .card-sector-body h3 { font-size: 1.4rem; color: #0f172a; margin-bottom: 10px; font-weight: 700; }
-        .card-sector-body p { color: #64748b; font-size: 0.95rem; margin-bottom: 15px; }
+        /* CARDS CON IMÁGENES Y ESTILO GLASS */
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        .glass-card-img { 
+            background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); 
+            border-radius: 20px; overflow: hidden; transition: all 0.3s ease;
+        }
+        .glass-card-img:hover { border-color: rgba(56, 189, 248, 0.4); transform: translateY(-5px); }
+        .glass-card-img img { width: 100%; height: 220px; object-fit: cover; opacity: 0.8; transition: opacity 0.3s; }
+        .glass-card-img:hover img { opacity: 1; }
+        .glass-card-body { padding: 25px; }
+        .glass-card-body h3 { font-size: 1.3rem; color: #fff; margin-bottom: 10px; font-weight: 600; }
+        .glass-card-body p { color: #94a3b8; font-size: 0.9rem; font-weight: 300; }
 
-        /* BANNER MERCADO PÚBLICO */
-        .badge-publico { background: #0f172a; color: #fff; border-radius: 16px; padding: 40px; display: flex; align-items: center; gap: 25px; margin-top: 50px; }
-        .badge-publico svg { width: 48px; height: 48px; fill: #38bdf8; flex-shrink: 0; }
+        /* BANNER MERCADO PÚBLICO GLASS */
+        .badge-publico-glass { 
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(2, 132, 199, 0.2)); 
+            border: 1px solid rgba(56, 189, 248, 0.3); 
+            border-radius: 20px; padding: 35px; display: flex; align-items: center; gap: 25px; margin-top: 40px; 
+            backdrop-filter: blur(12px);
+        }
+        .badge-publico-glass svg { width: 42px; height: 42px; fill: #38bdf8; flex-shrink: 0; }
 
-        /* PROCESO DE TRABAJO (NUEVO CONTENIDO) */
-        .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; text-align: left; }
-        .step { background: #fff; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; position: relative; }
-        .step-num { font-size: 2.5rem; font-weight: 800; color: #cbd5e1; position: absolute; top: 15px; right: 20px; }
-        .step h4 { font-size: 1.1rem; color: #0f172a; margin-bottom: 8px; font-weight: 700; }
-        .step p { font-size: 0.9rem; color: #64748b; }
+        /* PASOS DE PROCESO (ESTILO APP TIMELINE) */
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .step-card { 
+            background: rgba(15, 23, 42, 0.3); border: 1px solid rgba(255, 255, 255, 0.05); 
+            padding: 25px; border-radius: 16px; position: relative;
+        }
+        .step-num { font-size: 2rem; font-weight: 700; color: rgba(56, 189, 248, 0.3); position: absolute; top: 15px; right: 20px; }
+        .step-card h4 { font-size: 1rem; color: #fff; margin-bottom: 8px; font-weight: 600; }
+        .step-card p { font-size: 0.85rem; color: #94a3b8; font-weight: 300; }
 
-        /* PREGUNTAS FRECUENTES (NUEVO CONTENIDO) */
+        /* PREGUNTAS FRECUENTES (FAQ GLASS) */
         .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .faq-item { background: #fff; padding: 25px; border-radius: 12px; border: 1px solid #e2e8f0; text-align: left; }
-        .faq-item h4 { font-size: 1rem; color: #0f172a; margin-bottom: 8px; font-weight: 700; }
-        .faq-item p { font-size: 0.88rem; color: #64748b; }
+        .faq-card { background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); padding: 25px; border-radius: 16px; text-align: left; }
+        .faq-card h4 { font-size: 1rem; color: #fff; margin-bottom: 8px; font-weight: 600; }
+        .faq-card p { font-size: 0.88rem; color: #94a3b8; font-weight: 300; }
 
-        /* FORMULARIO Y CONTACTO INTEGRADO (NUEVO CONTENIDO) */
-        .contact-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; background: #fff; padding: 40px; border-radius: 16px; border: 1px solid #e2e8f0; }
-        .contact-info { text-align: left; }
-        .contact-info h3 { font-size: 1.5rem; margin-bottom: 15px; font-weight: 700; }
-        .contact-detail { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; color: #475569; font-weight: 500; }
-        .contact-detail svg { width: 20px; height: 20px; fill: #0284c7; }
+        /* FORMULARIO Y CONTACTO INTEGRADO */
+        .contact-box { 
+            background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); 
+            padding: 40px; border-radius: 24px; backdrop-filter: blur(16px);
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; text-align: left;
+        }
+        .contact-info h3 { font-size: 1.6rem; color: #fff; margin-bottom: 12px; font-weight: 600; }
+        .contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; color: #cbd5e1; font-size: 0.95rem; }
+        .contact-item svg { width: 20px; height: 20px; fill: #38bdf8; }
 
-        .contact-form { text-align: left; display: flex; flex-direction: column; gap: 15px; }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 0.9rem; outline: none; }
-        .form-group input:focus, .form-group textarea:focus { border-color: #0284c7; }
+        .form-glass { display: flex; flex-direction: column; gap: 15px; }
+        .form-glass input, .form-glass textarea { 
+            width: 100%; background: rgba(8, 12, 20, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); 
+            padding: 12px 16px; border-radius: 10px; color: #fff; font-size: 0.9rem; outline: none; transition: border 0.2s;
+        }
+        .form-glass input:focus, .form-glass textarea:focus { border-color: #38bdf8; }
 
-        footer { background: #0f172a; color: #64748b; text-align: center; padding: 30px; font-size: 0.85rem; border-top: 1px solid #1e293b; }
+        footer { text-align: center; padding: 40px 20px; font-size: 0.85rem; color: #64748b; border-top: 1px solid rgba(255, 255, 255, 0.05); }
     </style>
 </head>
 <body>
 
-    <!-- Navegación Estilo Supabase -->
+    <div class="glow-bg"></div>
+
+    <!-- Navegación Flotante Glassmorphic -->
     <nav>
         <div class="logo">MULTICOMERCIAL <span>ARAUCANÍA</span></div>
         <div class="nav-links">
-            <a href="#soluciones">Líneas de Suministro</a>
+            <a href="#suministros">Suministros</a>
             <a href="#sectores">Sectores</a>
             <a href="#proceso">Proceso</a>
             <a href="#faq">FAQ</a>
@@ -118,7 +202,7 @@
         </div>
     </nav>
 
-    <!-- Hero / Portada -->
+    <!-- Hero / Portada Supaste Style -->
     <header class="hero">
         <div class="slideshow">
             <div class="slide"></div>
@@ -126,174 +210,163 @@
             <div class="slide"></div>
             <div class="slide"></div>
         </div>
-        <div class="overlay"></div>
+        
         <div class="hero-content">
-            <span class="badge-hero">Proveedor Oficial Mercado Público</span>
-            <h1>Soluciones integrales de suministro comercial B2B.</h1>
-            <p>Atención ágil, abastecimiento continuo y gestión garantizada para el sector público y privado en Chile.</p>
+            <div class="badge-hero">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#38bdf8"><circle cx="12" cy="12" r="10"/></svg>
+                Proveedor Registrado en Mercado Público
+            </div>
+            <h1>Abastecimiento integral <br>con <span class="serif-italic">eficiencia B2B.</span></h1>
+            <p>Soluciones operativas, insumos críticos y logística ágil para instituciones públicas y empresas en Chile.</p>
             <div class="btn-group">
                 <a href="#contacto" class="btn-primary">Solicitar Cotización</a>
-                <a href="#soluciones" class="btn-secondary">Explorar Catálogo</a>
+                <a href="#suministros" class="btn-glass">Ver Catálogo</a>
             </div>
         </div>
     </header>
 
-    <!-- NUEVO CONTENIDO: Líneas de Suministro / Productos -->
-    <section id="soluciones" class="bg-white">
+    <!-- Líneas de Suministros -->
+    <section id="suministros">
         <div class="section-header">
-            <h2>Líneas de Abastecimiento</h2>
-            <p>Cubrimos los requerimientos operativos más exigentes para instituciones y empresas</p>
+            <h2>Líneas de <span class="serif-italic">Suministro.</span></h2>
+            <p>Catálogo unificado para cubrir las necesidades operativas institucionales.</p>
         </div>
 
         <div class="grid-4">
-            <div class="card-cat">
+            <div class="glass-card">
                 <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
                 <h4>Aseo e Higiene</h4>
-                <p>Insumos institucionales, desinfectantes y artículos de limpieza de alto rendimiento.</p>
+                <p>Insumos institucionales, desinfectantes industriales y artículos de limpieza de alto tráfico.</p>
             </div>
-            <div class="card-cat">
+            <div class="glass-card">
                 <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                <h4>Oficina y Papelería</h4>
+                <h4>Oficina & Papelería</h4>
                 <p>Suministros de escritorio, artículos impresos, papelería e insumos administrativos.</p>
             </div>
-            <div class="card-cat">
+            <div class="glass-card">
                 <svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 5h16v11H4V5z"/></svg>
-                <h4>Tecnología & Consumibles</h4>
-                <p>Equipamiento informático, toners, accesorios y componentes tecnológicos.</p>
+                <h4>Tecnología & Toners</h4>
+                <p>Equipamiento informático, toners, consumibles impresos y accesorios tecnológicos.</p>
             </div>
-            <div class="card-cat">
+            <div class="glass-card">
                 <svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.45l8.15 14.1H3.85L12 5.45zM11 10h2v4h-2zm0 5h2v2h-2z"/></svg>
-                <h4>Equipamiento Seguridad</h4>
-                <p>Elementos de protección personal (EPP), señalética y vestuario corporativo.</p>
+                <h4>Seguridad & EPP</h4>
+                <p>Elementos de protección personal, señalética de seguridad y vestuario de trabajo.</p>
             </div>
         </div>
     </section>
 
-    <!-- Sectores Principalmente Atendidos -->
-    <section id="sectores" class="bg-slate">
+    <!-- Sectores Especializados -->
+    <section id="sectores">
         <div class="section-header">
-            <h2>Segmentos Especializados</h2>
-            <p>Modelos de atención diseñados para la normativa pública y la agilidad privada</p>
+            <h2>Modelos de <span class="serif-italic">Atención.</span></h2>
+            <p>Especialización según el marco normativo y operativo de cada cliente.</p>
         </div>
 
         <div class="grid-2">
-            <div class="card-sector">
+            <div class="glass-card-img">
                 <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?q=80&w=600" alt="Sector Público">
-                <div class="card-sector-body">
-                    <h3>Sector Público y Licítaciones</h3>
-                    <p>Procesos adaptados a la Ley de Compras Públicas. Atendemos órdenes de compra directa, licitaciones y grandes compras estatales.</p>
+                <div class="glass-card-body">
+                    <h3>Sector Público & Licitaciones</h3>
+                    <p>Atención fluida a requerimientos estatales, compras directas, licitaciones y órdenes de compra con cumplimiento garantizado.</p>
                 </div>
             </div>
-            <div class="card-sector">
+            <div class="glass-card-img">
                 <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600" alt="Sector Privado">
-                <div class="card-sector-body">
-                    <h3>Empresas y Corporativos</h3>
-                    <p>Atención directa B2B, crédito comercial sujeto a evaluación y tiempos de respuesta diseñados para la continuidad de su operación.</p>
+                <div class="glass-card-body">
+                    <h3>Sector Privado & Corporativos</h3>
+                    <p>Alianzas comerciales B2B, atención personalizada, crédito sujeto a evaluación y agilidad en cadena de abastecimiento.</p>
                 </div>
             </div>
         </div>
 
-        <div class="badge-publico">
+        <div class="badge-publico-glass">
             <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
             <div style="text-align: left;">
-                <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff;">Proveedor Activo en Mercado Público</h3>
-                <p style="color: #94a3b8; font-size: 0.95rem; margin-top: 4px;">Facturación electrónica, cumplimiento de convenios y trazabilidad garantizada.</p>
+                <h3 style="font-size: 1.2rem; font-weight: 600; color: #fff;">Acreditados en Mercado Público</h3>
+                <p style="color: #94a3b8; font-size: 0.9rem; font-weight: 300;">Cumplimiento riguroso en tiempos de despacho, facturación electrónica y convenios.</p>
             </div>
         </div>
     </section>
 
-    <!-- NUEVO CONTENIDO: Proceso de Atención -->
-    <section id="proceso" class="bg-white">
+    <!-- Proceso de Trabajo -->
+    <section id="proceso">
         <div class="section-header">
-            <h2>¿Cómo Trabajamos?</h2>
-            <p>Un flujo claro para garantizar entregas en tiempo y forma</p>
+            <h2>Gestión en <span class="serif-italic">4 pasos.</span></h2>
+            <p>Flujo simple y transparente desde el primer requerimiento hasta la entrega.</p>
         </div>
 
-        <div class="process-steps">
-            <div class="step">
+        <div class="process-grid">
+            <div class="step-card">
                 <span class="step-num">01</span>
                 <h4>Requerimiento</h4>
-                <p>Envío de ficha técnica, lista de insumos o número de licitación para revisión.</p>
+                <p>Envío de ficha técnica, lista de insumos o número de licitación pública.</p>
             </div>
-            <div class="step">
+            <div class="step-card">
                 <span class="step-num">02</span>
-                <h4>Cotización Agilizada</h4>
-                <p>Respuesta comercial formal con valores netos, plazos de entrega y disponibilidad.</p>
+                <h4>Cotización</h4>
+                <p>Emisión de propuesta comercial detallada en un plazo máximo de 24 horas.</p>
             </div>
-            <div class="step">
+            <div class="step-card">
                 <span class="step-num">03</span>
-                <h4>OC / Adjudicación</h4>
-                <p>Recepción de Orden de Compra oficial o emisión de factura de compromiso.</p>
+                <h4>Adjudicación / OC</h4>
+                <p>Recepción de Orden de Compra oficial o emisión de facturación acuerdo.</p>
             </div>
-            <div class="step">
+            <div class="step-card">
                 <span class="step-num">04</span>
-                <h4>Despacho & Entrega</h4>
-                <p>Logística y entrega en dependencias indicadas con guía de despacho conforme.</p>
+                <h4>Despacho</h4>
+                <p>Entrega en dependencias indicadas con guía de despacho y recepción conforme.</p>
             </div>
         </div>
     </section>
 
-    <!-- NUEVO CONTENIDO: Preguntas Frecuentes (FAQ) -->
-    <section id="faq" class="bg-slate">
+    <!-- Preguntas Frecuentes -->
+    <section id="faq">
         <div class="section-header">
-            <h2>Preguntas Frecuentes</h2>
-            <p>Respuesta rápida a consultas de gestión comercial</p>
+            <h2>Preguntas <span class="serif-italic">Frecuentes.</span></h2>
         </div>
 
         <div class="faq-grid">
-            <div class="faq-item">
+            <div class="faq-card">
                 <h4>¿Aceptan órdenes de compra a través de Mercado Público?</h4>
-                <p>Sí, operamos regularmente con la plataforma de ChileCompra mediante órdenes de compra emitidas por organismos del Estado.</p>
+                <p>Sí, operamos regularmente con la plataforma ChileCompra mediante órdenes de compra emitidas por organismos estatales.</p>
             </div>
-            <div class="faq-item">
-                <h4>¿Cuál es el tiempo de emisión de cotizaciones?</h4>
-                <p>Procesamos y enviamos cotizaciones dentro de un plazo de 2 a 24 horas hábiles según el volumen del requerimiento.</p>
+            <div class="faq-card">
+                <h4>¿Cuál es el tiempo de respuesta para una cotización?</h4>
+                <p>Procesamos solicitudes formales en un plazo de 2 a 24 horas hábiles según el volumen o complejidad técnica.</p>
             </div>
-            <div class="faq-item">
-                <h4>¿Realizan despachos fuera de Temuco o la Araucanía?</h4>
-                <p>Sí, gestionamos despacho y distribución según acuerdo logístico previo con el cliente o institución.</p>
+            <div class="faq-card">
+                <h4>¿Tienen capacidad de despacho regional?</h4>
+                <p>Sí, coordinamos logística comercial para entregas directas según acuerdo previo de factibilidad.</p>
             </div>
         </div>
     </section>
 
-    <!-- NUEVO CONTENIDO: Formulario e Información de Contacto -->
-    <section id="contacto" class="bg-white">
-        <div class="section-header">
-            <h2>Inicie su Requerimiento</h2>
-            <p>Escríbanos para recibir una cotización o atención comercial personalizada</p>
-        </div>
-
-        <div class="contact-wrapper">
+    <!-- Contacto Directo -->
+    <section id="contacto">
+        <div class="contact-box">
             <div class="contact-info">
-                <h3>Contacto Directo</h3>
-                <p style="color: #64748b; margin-bottom: 25px; font-size: 0.95rem;">Atención comercial presencial y remota de Lunes a Viernes (08:30 a 18:30 hrs).</p>
-                
-                <div class="contact-detail">
+                <h3>Inicie su <span class="serif-italic">cotización.</span></h3>
+                <p style="color: #94a3b8; margin-bottom: 25px; font-weight: 300; font-size: 0.9rem;">Horario comercial: Lunes a Viernes (08:30 a 18:30 hrs).</p>
+
+                <div class="contact-item">
                     <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                     <span>multicomercial.araucania@gmail.com</span>
                 </div>
-                <div class="contact-detail">
+                <div class="contact-item">
                     <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
                     <span>+56 9 7756 6368</span>
                 </div>
-                
-                <a href="https://wa.me/56977566368" target="_blank" class="btn-primary" style="display: inline-block; margin-top: 15px; text-align: center;">Contactar por WhatsApp</a>
+
+                <a href="https://wa.me/56977566368" target="_blank" class="btn-primary" style="display: inline-block; margin-top: 15px; text-align: center;">Escribir a WhatsApp</a>
             </div>
 
-            <form class="contact-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Solicitud enviada correctamente. Nos contactaremos a la brevedad.');">
-                <div class="form-group">
-                    <input type="text" placeholder="Nombre o Razón Social" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Correo electrónico institucional" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Teléfono de contacto">
-                </div>
-                <div class="form-group">
-                    <textarea rows="4" placeholder="Detalle los insumos o requerimientos que necesita cotizar..." required></textarea>
-                </div>
-                <button type="submit" class="btn-primary" style="border: none; cursor: pointer;">Enviar Solicitud de Cotización</button>
+            <form class="form-glass" action="#" method="POST" onsubmit="event.preventDefault(); alert('Solicitud enviada exitosamente.');">
+                <input type="text" placeholder="Nombre / Empresa / Institución" required>
+                <input type="email" placeholder="Correo electrónico institucional" required>
+                <input type="text" placeholder="Teléfono de contacto">
+                <textarea rows="4" placeholder="Detalle los insumos requeridos..." required></textarea>
+                <button type="submit" class="btn-primary" style="cursor: pointer; border: none;">Enviar Requerimiento</button>
             </form>
         </div>
     </section>
