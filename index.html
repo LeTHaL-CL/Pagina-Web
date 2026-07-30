@@ -3,391 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multicomercial Araucanía Limitada | Servicios Comerciales Público y Privado</title>
+    <title>Multicomercial Araucanía | Soluciones Integrales</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; line-height: 1.6; }
+        
+        /* Navegación Fija */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .logo { font-weight: 800; font-size: 1.1rem; color: #fff; letter-spacing: 1px; }
+        .logo span { color: #38bdf8; }
+        nav a { color: #cbd5e1; text-decoration: none; margin-left: 20px; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover { color: #38bdf8; }
 
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 30px 20px;
-            color: #f8fafc;
-            background: linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.92)), 
-                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
-            background-size: cover;
-        }
+        /* Hero / Carrusel de Portada */
+        .hero { position: relative; height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+        .slideshow { position: absolute; width: 100%; height: 100%; z-index: 1; }
+        .slide { position: absolute; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; animation: anim 16s infinite; }
+        .slide:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200'); animation-delay: 0s; }
+        .slide:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200'); animation-delay: 4s; }
+        .slide:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200'); animation-delay: 8s; }
+        .slide:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200'); animation-delay: 12s; }
+        @keyframes anim { 0%, 100% { opacity: 0; } 10%, 25% { opacity: 1; } 35% { opacity: 0; } }
 
-        .card {
-            background-color: rgba(30, 41, 59, 0.90);
-            backdrop-filter: blur(12px);
-            border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
-            max-width: 680px;
-            width: 100%;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            text-align: center;
-            overflow: hidden;
-        }
+        .overlay { position: absolute; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.75); z-index: 2; }
+        .hero-content { position: relative; z-index: 3; max-width: 800px; padding: 20px; }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 10px; font-weight: 800; }
+        .hero p { font-size: 1.2rem; color: #38bdf8; font-style: italic; margin-bottom: 25px; }
+        
+        /* Botones de Acción */
+        .btn { display: inline-block; padding: 12px 28px; background: #38bdf8; color: #0f172a; text-decoration: none; font-weight: 700; border-radius: 6px; transition: 0.3s; }
+        .btn:hover { background: #7dd3fc; }
 
-        /* Cabecera del recuadro con Carrusel de Imágenes (Efecto Slideshow / PowerPoint) */
-        .card-header-slider {
-            position: relative;
-            height: 220px;
-            overflow: hidden;
-        }
+        /* Secciones */
+        section { padding: 80px 10%; text-align: center; }
+        .section-title { font-size: 2rem; color: #fff; margin-bottom: 10px; }
+        .section-subtitle { color: #38bdf8; margin-bottom: 40px; font-size: 0.95rem; }
 
-        .slideshow {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+        /* Grilla de Servicios */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card-service { background: #1e293b; padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); text-align: left; }
+        .card-service svg { width: 32px; height: 32px; fill: #38bdf8; margin-bottom: 15px; }
+        .card-service h3 { color: #f1f5f9; margin-bottom: 10px; }
+        .card-service p { color: #94a3b8; font-size: 0.9rem; }
 
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            animation: sliderAnim 16s infinite ease-in-out;
-        }
+        /* Banner Mercado Público */
+        .badge-publico { background: linear-gradient(135deg, rgba(2, 132, 199, 0.2), rgba(30, 41, 59, 0.8)); border: 1px solid #38bdf8; padding: 30px; border-radius: 12px; margin-top: 40px; display: flex; align-items: center; justify-content: center; gap: 20px; text-align: left; }
+        .badge-publico svg { width: 40px; height: 40px; fill: #38bdf8; flex-shrink: 0; }
 
-        .slide:nth-child(1) {
-            background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop');
-            animation-delay: 0s;
-        }
-        .slide:nth-child(2) {
-            background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop');
-            animation-delay: 4s;
-        }
-        .slide:nth-child(3) {
-            background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop');
-            animation-delay: 8s;
-        }
-        .slide:nth-child(4) {
-            background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1000&auto=format&fit=crop');
-            animation-delay: 12s;
-        }
+        /* Contacto y Pie */
+        .contact-box { background: #1e293b; padding: 40px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); max-width: 600px; margin: 0 auto; }
+        .contact-item { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 15px; color: #e2e8f0; }
+        .contact-item svg { width: 20px; height: 20px; fill: #38bdf8; }
+        .contact-item a { color: #38bdf8; text-decoration: none; }
 
-        @keyframes sliderAnim {
-            0% { opacity: 0; transform: scale(1); }
-            5% { opacity: 1; }
-            25% { opacity: 1; }
-            30% { opacity: 0; transform: scale(1.05); }
-            100% { opacity: 0; }
-        }
-
-        .header-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(30, 41, 59, 0.95));
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-            padding: 24px 20px 18px 20px;
-            z-index: 2;
-        }
-
-        .company-name {
-            font-size: 1.55rem;
-            font-weight: 800;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
-            margin-bottom: 6px;
-        }
-
-        /* Eslogan Corporativo */
-        .slogan {
-            font-size: 0.95rem;
-            color: #38bdf8;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
-            font-style: italic;
-        }
-
-        .card-body {
-            padding: 32px 28px;
-        }
-
-        h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #f1f5f9;
-        }
-
-        p.intro {
-            color: #cbd5e1;
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 24px;
-        }
-
-        /* Banner de Mercado Público */
-        .mercado-publico-badge {
-            background: linear-gradient(135deg, rgba(2, 132, 199, 0.3), rgba(3, 105, 161, 0.4));
-            border: 1px solid #38bdf8;
-            border-radius: 12px;
-            padding: 14px 18px;
-            margin-bottom: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            box-shadow: 0 4px 14px rgba(56, 189, 248, 0.15);
-        }
-
-        .corp-icon {
-            width: 24px;
-            height: 24px;
-            fill: #38bdf8;
-            flex-shrink: 0;
-        }
-
-        .mercado-publico-text {
-            text-align: left;
-            font-size: 0.9rem;
-            color: #ffffff;
-            line-height: 1.35;
-        }
-
-        .mercado-publico-text strong {
-            font-size: 0.98rem;
-            display: block;
-            color: #f0f9ff;
-        }
-
-        /* Sección de Servicios */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 16px;
-            margin-bottom: 28px;
-            text-align: left;
-        }
-
-        .service-card {
-            background-color: rgba(15, 23, 42, 0.6);
-            border: 1px solid #334155;
-            padding: 18px;
-            border-radius: 12px;
-        }
-
-        .service-card h3 {
-            font-size: 1.05rem;
-            color: #38bdf8;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .service-card p {
-            font-size: 0.88rem;
-            color: #94a3b8;
-            line-height: 1.45;
-        }
-
-        /* Sección de Cobertura */
-        .coverage-box {
-            background-color: rgba(15, 23, 42, 0.4);
-            border-left: 4px solid #38bdf8;
-            padding: 12px 16px;
-            border-radius: 0 8px 8px 0;
-            text-align: left;
-            margin-bottom: 28px;
-            font-size: 0.9rem;
-            color: #cbd5e1;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .coverage-box strong {
-            color: #f1f5f9;
-        }
-
-        /* Sección de Contacto */
-        .contact-section {
-            background-color: rgba(15, 23, 42, 0.75);
-            border-radius: 14px;
-            padding: 22px;
-            margin-bottom: 24px;
-            border: 1px solid #334155;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            text-align: left;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.95rem;
-            color: #e2e8f0;
-        }
-
-        .contact-item a {
-            color: #38bdf8;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .contact-item a:hover {
-            color: #7dd3fc;
-            text-decoration: underline;
-        }
-
-        .btn-whatsapp {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background-color: transparent;
-            border: 1px solid #38bdf8;
-            color: #38bdf8;
-            font-weight: 600;
-            text-decoration: none;
-            padding: 12px 18px;
-            border-radius: 8px;
-            margin-top: 4px;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.15);
-        }
-
-        .btn-whatsapp:hover {
-            background-color: #38bdf8;
-            color: #0f172a;
-            text-decoration: none;
-        }
-
-        .btn-whatsapp:hover .corp-icon {
-            fill: #0f172a;
-        }
-
-        /* Footer */
-        .footer-info {
-            font-size: 0.85rem;
-            color: #64748b;
-            border-top: 1px solid #334155;
-            padding-top: 18px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
+        footer { padding: 30px; text-align: center; font-size: 0.85rem; color: #64748b; border-top: 1px solid #334155; }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <!-- Cabecera con Carrusel de Imágenes Estilo PowerPoint -->
-        <div class="card-header-slider">
-            <div class="slideshow">
-                <div class="slide"></div>
-                <div class="slide"></div>
-                <div class="slide"></div>
-                <div class="slide"></div>
+    <!-- Navegación Fija -->
+    <nav>
+        <div class="logo">MULTICOMERCIAL <span>ARAUCANÍA</span></div>
+        <div>
+            <a href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Header / Hero Slide -->
+    <header id="inicio" class="hero">
+        <div class="slideshow">
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+        </div>
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>MULTICOMERCIAL ARAUCANÍA LIMITADA</h1>
+            <p>"Soluciones Integrales para el Sector Público y Privado"</p>
+            <a href="#contacto" class="btn">Contactar Ahora</a>
+        </div>
+    </header>
+
+    <!-- Sección Servicios -->
+    <section id="servicios">
+        <h2 class="section-title">Nuestros Ámbitos de Atención</h2>
+        <p class="section-subtitle">Suministro y gestión comercial con estándar de excelencia corporativa</p>
+        
+        <div class="grid">
+            <div class="card-service">
+                <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+                <h3>Sector Público</h3>
+                <p>Atención especializada a requerimientos institucionales, procesos de licitaciones y compras estatales mediante plataformas oficiales.</p>
             </div>
-            <div class="header-overlay">
-                <div class="company-name">Multicomercial Araucanía Limitada</div>
-                <div class="slogan">"Soluciones Integrales para el Sector Público y Privado"</div>
+            <div class="card-service">
+                <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+                <h3>Sector Privado</h3>
+                <p>Provisión comercial directa, alianzas operativas y gestión de suministros eficientes para empresas e industrias.</p>
             </div>
         </div>
 
-        <div class="card-body">
-            <h1 id="saludo">Servicios Comerciales Integrales</h1>
-            
-            <p class="intro">Proveedores estratégicos de servicios comerciales y soluciones corporativas especializadas para el ámbito público y privado.</p>
-            
-            <!-- Banner de Proveedor de Mercado Público -->
-            <div class="mercado-publico-badge">
-                <svg class="corp-icon" viewBox="0 0 24 24">
-                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
-                </svg>
-                <div class="mercado-publico-text">
-                    <strong>Proveedor Mercado Público</strong>
-                    Operamos con Municipalidades, Servicios Públicos y Organismos del Estado.
-                </div>
-            </div>
-
-            <!-- Grilla de Servicios enfocada en Ámbito Público y Privado -->
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>
-                        <svg class="corp-icon" viewBox="0 0 24 24">
-                            <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
-                        </svg>
-                        Sector Público
-                    </h3>
-                    <p>Atención especializada a requerimientos institucionales, licitaciones y convenios en Mercado Público.</p>
-                </div>
-                <div class="service-card">
-                    <h3>
-                        <svg class="corp-icon" viewBox="0 0 24 24">
-                            <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
-                        </svg>
-                        Sector Privado
-                    </h3>
-                    <p>Provisión comercial directa, alianzas corporativas y suministro eficiente para empresas y comercios.</p>
-                </div>
-            </div>
-
-            <!-- Cobertura -->
-            <div class="coverage-box">
-                <svg class="corp-icon" viewBox="0 0 24 24">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                </svg>
-                <span><strong>Cobertura:</strong> Cobertura completa en la Región de La Araucanía y zonas macro-sur.</span>
-            </div>
-
-            <!-- Datos de Contacto Directo -->
-            <div class="contact-section">
-                <div class="contact-item">
-                    <svg class="corp-icon" viewBox="0 0 24 24">
-                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                    </svg>
-                    <span><strong>Correo:</strong> <a href="mailto:multicomercial.araucania@gmail.com">multicomercial.araucania@gmail.com</a></span>
-                </div>
-                <div class="contact-item">
-                    <svg class="corp-icon" viewBox="0 0 24 24">
-                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                    </svg>
-                    <span><strong>Teléfono:</strong> <a href="tel:+56977566368">+56 9 7756 6368</a></span>
-                </div>
-                <a href="https://wa.me/56977566368?text=Hola,%20quisiera%20consultar%20por%20sus%20servicios%20comerciales" target="_blank" class="btn-whatsapp">
-                    <svg class="corp-icon" viewBox="0 0 24 24">
-                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                    </svg>
-                    Contactar vía WhatsApp
-                </a>
-            </div>
-
-            <!-- Pie de Página -->
-            <div class="footer-info">
-                <div>Horario de atención: Lunes a Viernes de 08:30 a 18:30 hrs</div>
-                <div style="margin-top: 4px; opacity: 0.7;">© Multicomercial Araucanía Limitada. Todos los derechos reservados.</div>
+        <div class="badge-publico">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+            <div>
+                <strong style="font-size: 1.1rem; color: #fff;">Proveedor Acreditado en Mercado Público</strong>
+                <p style="color: #cbd5e1; font-size: 0.9rem; margin-top: 4px;">Operamos directamente con Municipalidades, Servicios Públicos y Organismos del Estado.</p>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" style="background: #090d16;">
+        <h2 class="section-title">Canales de Atención</h2>
+        <p class="section-subtitle">Atención comercial de Lunes a Viernes de 08:30 a 18:30 hrs</p>
+
+        <div class="contact-box">
+            <div class="contact-item">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <span>multicomercial.araucania@gmail.com</span>
+            </div>
+            <div class="contact-item">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                <span>+56 9 7756 6368</span>
+            </div>
+            <a href="https://wa.me/56977566368" class="btn" style="margin-top: 15px; width: 100%;">Escribir por WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© Multicomercial Araucanía Limitada. Todos los derechos reservados.</p>
+    </footer>
 
 </body>
 </html>
