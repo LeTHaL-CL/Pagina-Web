@@ -114,10 +114,10 @@
 
 
         /* ============================================================ */
-        /* SECCIÓN DE FORMULARIO BOAXT (ESTILO DE LA FOTO)              */
+        /* SECCIÓN DE FORMULARIO BOAXT (AZUL CELESTE)                    */
         /* ============================================================ */
         .boaxt-form-section {
-            background-color: #4a7bb0; /* Azul exacto de la foto */
+            background-color: #3b82f6; /* Celeste brillante corporativo */
             color: #ffffff;
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -133,15 +133,15 @@
 
         .boaxt-form-title {
             font-size: 3.2rem;
-            font-weight: 500;
+            font-weight: 600;
             line-height: 1.1;
             letter-spacing: -1.5px;
             margin-bottom: 20px;
         }
 
         .boaxt-form-desc {
-            font-size: 1rem;
-            color: #e2e8f0;
+            font-size: 1.05rem;
+            color: #f1f5f9;
             line-height: 1.5;
             margin-bottom: 40px;
             font-weight: 400;
@@ -173,8 +173,8 @@
 
         .boaxt-input, .boaxt-select, .boaxt-textarea {
             width: 100%;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             padding: 12px 16px;
             color: #ffffff;
             font-size: 0.95rem;
@@ -184,21 +184,21 @@
         }
 
         .boaxt-input::placeholder, .boaxt-textarea::placeholder {
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.65);
         }
 
         .boaxt-input:focus, .boaxt-select:focus, .boaxt-textarea:focus {
             border-color: #ffffff;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.22);
         }
 
         .boaxt-select {
-            color: rgba(255, 255, 255, 0.7);
+            color: #ffffff;
             cursor: pointer;
         }
 
         .boaxt-select option {
-            background: #4a7bb0;
+            background: #2563eb;
             color: #ffffff;
         }
 
@@ -208,12 +208,12 @@
         }
 
         .boaxt-submit-btn {
-            background-color: #1a2232;
+            background-color: #0f172a;
             color: #ffffff;
             border: none;
-            padding: 16px 32px;
+            padding: 16px 36px;
             font-size: 0.95rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             width: fit-content;
             margin-top: 10px;
@@ -221,10 +221,9 @@
         }
 
         .boaxt-submit-btn:hover {
-            background-color: #0b111e;
+            background-color: #020617;
         }
 
-        /* Imagen derecha de Abastecimiento/Logística */
         .boaxt-form-image {
             width: 100%;
             height: 100%;
@@ -234,7 +233,7 @@
 
 
         /* ============================================================ */
-        /* ESTILO EXACTO BOAXT FOOTER/CONTACT (PIE DE PÁGINA)          */
+        /* FOOTER / CONTACTO EN OSCURO                                 */
         /* ============================================================ */
         .boaxt-footer-section {
             background-color: #0b111e;
@@ -419,7 +418,7 @@
             <a href="#sectores">Sectores</a>
             <a href="#proceso">Proceso</a>
             <a href="#faq">FAQ</a>
-            <a href="#contacto" class="btn-nav">Cotizar Directo</a>
+            <a href="#cotizar" class="btn-nav">Cotizar Directo</a>
         </div>
     </nav>
 
@@ -520,53 +519,53 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- FORMULARIO ESTILO BOAXT (EXACTO A LA IMAGEN)                 -->
+    <!-- FORMULARIO ESTILO BOAXT (CELESTE Y EN ESPAÑOL)              -->
     <!-- ============================================================ -->
     <div id="cotizar" class="boaxt-form-section">
         <div class="boaxt-form-content">
-            <h2 class="boaxt-form-title">Ready to Supply Your Business?</h2>
-            <p class="boaxt-form-desc">Solicite especificaciones detalladas, precios de mayorista y plazos de entrega. Nuestro equipo le guiará en todo el proceso de abastecimiento para su institución o empresa.</p>
+            <h2 class="boaxt-form-title">¿Listo para Abastecer su Organización?</h2>
+            <p class="boaxt-form-desc">Solicite cotizaciones formales, precios de mayorista y plazos de entrega. Nuestro equipo le guiará en todo el proceso de provisión e insumos para su entidad.</p>
             
-            <form class="boaxt-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Solicitud de cotización enviada.');">
+            <form class="boaxt-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Solicitud de cotización enviada con éxito.');">
                 <div class="boaxt-form-row">
                     <div class="boaxt-field-group">
-                        <label>First name</label>
-                        <input type="text" class="boaxt-input" placeholder="First Name..." required>
+                        <label>Nombre</label>
+                        <input type="text" class="boaxt-input" placeholder="Tu nombre..." required>
                     </div>
                     <div class="boaxt-field-group">
-                        <label>Last name</label>
-                        <input type="text" class="boaxt-input" placeholder="Last Name..." required>
+                        <label>Apellido</label>
+                        <input type="text" class="boaxt-input" placeholder="Tu apellido..." required>
                     </div>
                 </div>
 
                 <div class="boaxt-form-row">
                     <div class="boaxt-field-group">
-                        <label>Email Address</label>
-                        <input type="email" class="boaxt-input" placeholder="Email Address..." required>
+                        <label>Correo Electrónico</label>
+                        <input type="email" class="boaxt-input" placeholder="ejemplo@institucion.cl" required>
                     </div>
                     <div class="boaxt-field-group">
-                        <label>Phone Number</label>
-                        <input type="tel" class="boaxt-input" placeholder="Phone Number...">
+                        <label>Teléfono de Contacto</label>
+                        <input type="tel" class="boaxt-input" placeholder="+56 9 ...">
                     </div>
                 </div>
 
                 <div class="boaxt-field-group">
-                    <label>Línea de Suministro / Región</label>
-                    <select class="boaxt-select">
-                        <option value="">Seleccione línea de interés</option>
-                        <option value="aseo">Aseo e Higiene Institucional</option>
-                        <option value="oficina">Oficina y Papelería</option>
-                        <option value="tecnologia">Tecnología y Toners</option>
-                        <option value="seguridad">Seguridad y EPP</option>
+                    <label>Tipo de Institución o Empresa</label>
+                    <select class="boaxt-select" required>
+                        <option value="" disabled selected>Seleccione el tipo de entidad...</option>
+                        <option value="municipalidad">Municipalidad / Corporación Municipal</option>
+                        <option value="ministerio">Ministerio / Servicio Público / Hospital</option>
+                        <option value="privado">Empresa Privada / Pyme</option>
+                        <option value="otro">Otro Tipo de Entidad</option>
                     </select>
                 </div>
 
                 <div class="boaxt-field-group">
-                    <label>Specification needed <span style="font-size: 0.8rem; opacity: 0.7;">(Optional)</span></label>
-                    <textarea class="boaxt-textarea" placeholder="Tell us here... Detalle los insumos requeridos o números de licitación"></textarea>
+                    <label>Especificaciones o Requerimientos <span style="font-size: 0.8rem; opacity: 0.8;">(Opcional)</span></label>
+                    <textarea class="boaxt-textarea" placeholder="Escriba aquí los insumos, cantidades requeridas o ID de licitación pública..."></textarea>
                 </div>
 
-                <button type="submit" class="boaxt-submit-btn">Request Information</button>
+                <button type="submit" class="boaxt-submit-btn">Solicitar Cotización</button>
             </form>
         </div>
 
@@ -595,7 +594,7 @@
             <div class="boaxt-grid">
                 
                 <div class="boaxt-col">
-                    <div class="boaxt-col-label">Headquarter</div>
+                    <div class="boaxt-col-label">Casa Matriz</div>
                     <div class="boaxt-col-value">
                         Región de La Araucanía<br>
                         Chile
@@ -620,12 +619,12 @@
 
             <div class="boaxt-bottom-bar">
                 <div class="boaxt-legal-links">
-                    <a href="#">Terms of Use</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Cookies Policy</a>
+                    <a href="#">Términos de Uso</a>
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Mercado Público</a>
                 </div>
                 <div>
-                    © 2026 MULTICOMERCIAL ARAUCANÍA LIMITADA. All rights reserved.
+                    © 2026 MULTICOMERCIAL ARAUCANÍA LIMITADA. Todos los derechos reservados.
                 </div>
             </div>
 
