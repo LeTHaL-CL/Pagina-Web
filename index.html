@@ -30,7 +30,7 @@
             justify-content: space-between; 
             align-items: center; 
             z-index: 1000;
-            background: rgba(9, 13, 22, 0.65);
+            background: rgba(9, 13, 22, 0.75);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -56,7 +56,7 @@
         }
         .btn-nav:hover { background: #155d97 !important; }
 
-        /* HERO CON FOTOS DE NUESTRA PYME EN ACCIÓN */
+        /* HERO - FOTOS ENTORNO LOGÍSTICO Y ABASTECIMIENTO CHILE */
         .boaxt-hero-wrapper {
             position: relative;
             width: 100%;
@@ -90,9 +90,7 @@
             transition: opacity 1.5s ease-in-out;
         }
 
-        .slide-item.active {
-            opacity: 0.7;
-        }
+        .slide-item.active { opacity: 0.65; }
 
         .hero-overlay {
             position: absolute;
@@ -157,19 +155,11 @@
 
         .boaxt-hero-btn:hover { background: #155d97; }
 
-        @media (max-width: 992px) {
-            nav { padding: 15px 20px; }
-            .nav-links a:not(.btn-nav) { display: none; }
-            .boaxt-hero-container { flex-direction: column; align-items: flex-start; gap: 30px; }
-            .boaxt-hero-title { font-size: 2.8rem; }
-            .boaxt-hero-right { max-width: 100%; }
-        }
-
-        /* SECCIÓN MANIFIESTO CON LA IMAGEN DE CUADRÍCULA */
+        /* MANIFIESTO CON GRILLA Y TRANSPARENCIA REPARADA */
         .manifesto-section {
             position: relative;
             width: 100%;
-            padding: 180px 5%;
+            padding: 160px 5%;
             background-color: #ffffff;
             background-image: url('https://cdn.prod.website-files.com/69e06189e1e5e41f5931bf65/69e2f3ba28bbe97219c18c0c_Frame%202147227196.png');
             background-repeat: repeat;
@@ -190,53 +180,138 @@
             z-index: 2;
         }
 
-        /* EFECTO DE TRANSPARENCIA PURA (SIN BLUR) QUE SE COMPLETA AL 100% */
         .manifesto-text {
             font-size: 3.2rem;
             font-weight: 400;
             color: #090d16;
             line-height: 1.25;
             letter-spacing: -1.2px;
-            opacity: 0.15; /* Inicia tenue */
-            transform: translateY(20px);
-            transition: opacity 0.15s ease-out, transform 0.15s ease-out;
+            opacity: 0.1; /* Inicia tenue */
+            transform: translateY(30px);
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
             will-change: opacity, transform;
         }
 
-        .manifesto-text strong {
-            font-weight: 800;
-            color: #000000;
+        .manifesto-text.visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
         }
 
-        .manifesto-text span.highlight {
-            color: #1C79C4;
+        .manifesto-text strong { font-weight: 800; color: #000000; }
+        .manifesto-text span.highlight { color: #1C79C4; font-weight: 700; }
+
+        /* NUEVA SECCIÓN DE SUMINISTROS INTERACTIVA (ESTILO DE LA IMAGEN) */
+        .interactive-supplies-section {
+            width: 100%;
+            background-color: #0b1726; /* Color de fondo oscuro elegante */
+            color: #ffffff;
+            display: flex;
+            min-height: 620px;
+            position: relative;
+        }
+
+        .supplies-left-image {
+            width: 50%;
+            position: relative;
+            overflow: hidden;
+            background-color: #050b12;
+        }
+
+        .supplies-left-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out, transform 0.6s ease;
+            transform: scale(1.03);
+        }
+
+        .supplies-left-image img.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .supplies-right-content {
+            width: 50%;
+            background-color: #09192b; /* Azul oscuro matching */
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .supplies-main-title {
+            font-size: 2.8rem;
             font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 40px;
+            color: #ffffff;
+            letter-spacing: -1px;
         }
 
-        @media (max-width: 900px) {
-            .manifesto-section { padding: 120px 6%; }
-            .manifesto-text { font-size: 2.2rem; letter-spacing: -0.5px; }
+        .supply-item-accordion {
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 24px 0;
+            cursor: pointer;
+            transition: background 0.2s;
         }
 
-        /* OTRAS SECCIONES */
+        .supply-item-accordion:last-child {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .supply-header {
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #94a3b8;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .supply-header span.num {
+            font-size: 1rem;
+            color: #1C79C4;
+        }
+
+        .supply-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, margin-top 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .supply-body p {
+            font-size: 0.98rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* Estado Activo / Hover de la lista desplegable */
+        .supply-item-accordion:hover .supply-header,
+        .supply-item-accordion.active .supply-header {
+            color: #ffffff;
+        }
+
+        .supply-item-accordion:hover .supply-body,
+        .supply-item-accordion.active .supply-body {
+            max-height: 150px;
+            margin-top: 14px;
+            opacity: 1;
+        }
+
+        /* OTROS ESTILOS & FOOTER */
         section { padding: 90px 5%; max-width: 1050px; margin: 0 auto; }
-        
         .section-header { text-align: left; margin-bottom: 45px; border-bottom: 2px solid #090d16; padding-bottom: 18px; }
         .section-header h2 { font-size: 2.1rem; font-weight: 800; letter-spacing: -1px; color: #090d16; }
         .section-header p { color: #64748b; font-size: 0.95rem; font-weight: 600; margin-top: 4px; }
-
-        .grid-square { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
-        .card-square { 
-            background: #ffffff; 
-            border: 2px solid #090d16; 
-            padding: 22px; transition: all 0.2s ease;
-            box-shadow: 4px 4px 0px #e2e8f0;
-            display: flex; flex-direction: column; align-items: flex-start;
-        }
-        .card-square:hover { border-color: #1C79C4; box-shadow: 4px 4px 0px #090d16; transform: translateY(-2px); }
-        .img-thumb-square { width: 75px; height: 75px; object-fit: cover; border: 2px solid #090d16; margin-bottom: 16px; }
-        .card-square h4 { font-size: 1.05rem; color: #090d16; margin-bottom: 8px; font-weight: 800; }
-        .card-square p { font-size: 0.88rem; color: #475569; font-weight: 500; }
 
         .reveal-container { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; align-items: start; margin-top: 30px; }
         .sticky-visual { position: sticky; top: 110px; height: 400px; border: 2px solid #090d16; box-shadow: 6px 6px 0px #090d16; overflow: hidden; }
@@ -247,16 +322,6 @@
         .reveal-item h3 { font-size: 1.25rem; font-weight: 800; color: #090d16; margin-bottom: 10px; }
         .reveal-item p { color: #475569; font-size: 0.92rem; font-weight: 500; }
 
-        .faq-accordion { display: flex; flex-direction: column; gap: 12px; }
-        details { background: #ffffff; border: 2px solid #090d16; padding: 16px 20px; cursor: pointer; box-shadow: 3px 3px 0px #090d16; transition: all 0.2s; }
-        details[open] { background: #f8fafc; border-color: #1C79C4; }
-        summary { font-weight: 800; font-size: 0.95rem; color: #090d16; list-style: none; display: flex; justify-content: space-between; align-items: center; }
-        summary::-webkit-details-marker { display: none; }
-        summary::after { content: '+'; font-size: 1.4rem; color: #1C79C4; font-weight: 800; }
-        details[open] summary::after { content: '−'; }
-        details p { margin-top: 12px; color: #475569; font-size: 0.9rem; border-top: 1.5px solid #090d16; padding-top: 12px; font-weight: 500; }
-
-        /* FORMULARIO Y FOOTER */
         .boaxt-form-section { background-color: #1C79C4; color: #ffffff; display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
         .boaxt-form-content { padding: 80px 60px; max-width: 650px; justify-self: end; width: 100%; }
         .boaxt-form-title { font-size: 3rem; font-weight: 700; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 20px; }
@@ -267,14 +332,13 @@
         .boaxt-field-group label { font-size: 0.9rem; font-weight: 500; color: #ffffff; }
         .boaxt-input, .boaxt-select, .boaxt-textarea { width: 100%; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.4); padding: 12px 16px; color: #ffffff; font-size: 0.95rem; outline: none; transition: all 0.2s; font-family: 'Plus Jakarta Sans', sans-serif; }
         .boaxt-input::placeholder, .boaxt-textarea::placeholder { color: rgba(255, 255, 255, 0.7); }
-        .boaxt-select { color: #ffffff; cursor: pointer; }
         .boaxt-select option { background: #1C79C4; color: #ffffff; }
         .boaxt-textarea { resize: vertical; min-height: 120px; }
         .boaxt-submit-btn { background-color: #0f172a; color: #ffffff; border: none; padding: 16px 36px; font-size: 0.95rem; font-weight: 700; cursor: pointer; width: fit-content; margin-top: 10px; transition: background-color 0.2s; }
         .boaxt-submit-btn:hover { background-color: #020617; }
         .boaxt-form-image { width: 100%; height: 100%; object-fit: cover; min-height: 500px; }
 
-        .boaxt-footer-section { background-color: #0b111e; color: #ffffff; padding: 90px 20px 40px; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .boaxt-footer-section { background-color: #0b111e; color: #ffffff; padding: 90px 20px 40px; }
         .boaxt-container { max-width: 1050px; margin: 0 auto; }
         .boaxt-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 25px; }
         .boaxt-brand-icon { width: 28px; height: 28px; fill: #1C79C4; }
@@ -294,7 +358,11 @@
         .boaxt-legal-links { display: flex; gap: 25px; }
         .boaxt-legal-links a { color: #64748b; text-decoration: none; }
 
-        @media (max-width: 900px) {
+        @media (max-width: 992px) {
+            .interactive-supplies-section { flex-direction: column; }
+            .supplies-left-image, .supplies-right-content { width: 100%; }
+            .supplies-left-image { height: 350px; }
+            .supplies-right-content { padding: 50px 30px; }
             .boaxt-form-section { grid-template-columns: 1fr; }
             .boaxt-form-content { padding: 50px 25px; max-width: 100%; }
             .boaxt-form-row { grid-template-columns: 1fr; }
@@ -302,9 +370,13 @@
         }
 
         @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            .nav-links a:not(.btn-nav) { display: none; }
+            .boaxt-hero-title { font-size: 2.6rem; }
+            .manifesto-text { font-size: 2rem; }
+            .supplies-main-title { font-size: 2.2rem; }
             .reveal-container, .boaxt-grid { grid-template-columns: 1fr; }
             .sticky-visual { position: relative; top: 0; height: 240px; }
-            .boaxt-main-heading, .boaxt-form-title { font-size: 2.2rem; }
             .boaxt-bottom-bar { flex-direction: column; gap: 15px; text-align: center; }
         }
     </style>
@@ -320,19 +392,19 @@
             <div class="logo">MULTICOMERCIAL <span>ARAUCANÍA</span></div>
         </a>
         <div class="nav-links">
-            <a href="#suministros">Productos</a>
+            <a href="#suministros">Suministros</a>
             <a href="#sectores">Mercado Público</a>
-            <a href="#faq">Preguntas</a>
             <a href="#cotizar" class="btn-nav">Enviar Requerimiento</a>
         </div>
     </nav>
 
-    <!-- HERO CON IMÁGENES DE LOGÍSTICA Y MERCADO PÚBLICO -->
+    <!-- HERO LOGÍSTICA REAL DE CHILE -->
     <header class="boaxt-hero-wrapper">
         <div class="hero-slideshow-grid">
+            <!-- Fotos de bodegas, camiones de reparto y operaciones de abastecimiento en Chile -->
             <div class="slide-item active" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1920');"></div>
-            <div class="slide-item" style="background-image: url('https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=1920');"></div>
-            <div class="slide-item" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920');"></div>
+            <div class="slide-item" style="background-image: url('https://images.unsplash.com/photo-1616401784845-180882ba9ba8?q=80&w=1920');"></div>
+            <div class="slide-item" style="background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1920');"></div>
         </div>
         
         <div class="hero-overlay"></div>
@@ -342,112 +414,110 @@
                 <h1 class="boaxt-hero-title">Tu Pyme aliada en Mercado Público y abastecimiento.</h1>
             </div>
             <div class="boaxt-hero-right">
-                <p class="boaxt-hero-desc">Somos una Pyme ágil y comprometida. Atendemos requerimientos del Estado y empresas privadas con respuesta inmediata, cumplimiento estricto de OC y entregas oportunas.</p>
+                <p class="boaxt-hero-desc">Atendemos requerimientos del Estado e instituciones en todo Chile con rapidez, cumplimiento estricto de Órdenes de Compra y despachos oportunos.</p>
                 <a href="#cotizar" class="boaxt-hero-btn">Solicitar Cotización / OC</a>
             </div>
         </div>
     </header>
 
-    <!-- SECCIÓN MANIFIESTO CON TRANSPARENCIA PROGRESIVA Y COMPLETA AL SCROLL -->
+    <!-- MANIFIESTO CON EFECTO DE VISIBILIDAD / TRANSPARENCIA GARANTIZADO -->
     <div class="manifesto-section" id="manifestoSection">
         <div class="manifesto-container">
             <p class="manifesto-text" id="manifestoText">
-                Desde <strong>2024</strong>, combinamos la agilidad de una <strong>Pyme cercana</strong> con la responsabilidad que exige 
-                <span class="highlight">Mercado Público</span>. Entregamos insumos esenciales con absoluta transparencia, precios competitivos y atención rápida.
+                Desde la <strong>Región de La Araucanía</strong>, combinamos la respuesta ágil de una <strong>Pyme cercana</strong> con la seriedad que exige 
+                <span class="highlight">Mercado Público</span> en todo el país.
             </p>
         </div>
     </div>
 
-    <!-- SUMINISTROS -->
-    <section id="suministros">
-        <div class="section-header">
-            <h2>Líneas de Suministros</h2>
-            <p>Listos para adjudicaciones, compras directas y pedidos institucionales.</p>
+    <!-- SECCIÓN INTERACTIVA ESTILO DE LA IMAGEN (CAMBIO DE FOTO AL PASAR MOUSE) -->
+    <div class="interactive-supplies-section" id="suministros">
+        <!-- Panel Izquierdo: Imagen Grande Cambiante -->
+        <div class="supplies-left-image">
+            <img src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?q=80&w=1200" id="img-supply-01" class="active" alt="Aseo e Higiene Chile">
+            <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=1200" id="img-supply-02" alt="Oficina y Papeleria Chile">
+            <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?q=80&w=1200" id="img-supply-03" alt="Tecnología y Toners Chile">
+            <img src="https://images.unsplash.com/photo-1618042164219-62c820f10723?q=80&w=1200" id="img-supply-04" alt="Seguridad y EPP Chile">
         </div>
 
-        <div class="grid-square">
-            <div class="card-square">
-                <img src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?q=80&w=200" class="img-thumb-square" alt="Aseo Institucional">
-                <h4>Aseo e Higiene</h4>
-                <p>Insumos institucionales de limpieza, desinfectantes y artículos de alto rendimiento.</p>
+        <!-- Panel Derecho: Título y Lista Acordeón Interactivo -->
+        <div class="supplies-right-content">
+            <h2 class="supplies-main-title">Línea de Suministros Integrales</h2>
+
+            <div class="supply-item-accordion active" data-target="img-supply-01">
+                <div class="supply-header">
+                    <span class="num">01</span> Aseo e Higiene Institucional
+                </div>
+                <div class="supply-body">
+                    <p>Insumos de desinfección, jabones, dispensadores, toallas de papel y productos químicos de alto rendimiento adaptados para licitaciones y compras públicas.</p>
+                </div>
             </div>
-            <div class="card-square">
-                <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=200" class="img-thumb-square" alt="Oficina">
-                <h4>Oficina y Papelería</h4>
-                <p>Resmas, archivadores, papelería e insumos para la administración pública y privada.</p>
+
+            <div class="supply-item-accordion" data-target="img-supply-02">
+                <div class="supply-header">
+                    <span class="num">02</span> Oficina, Resmas y Papelería
+                </div>
+                <div class="supply-body">
+                    <p>Resmas Carta y Oficio, archivadores, carpetas y artículos de escritorio indispensables para el funcionamiento continuo de reparticiones públicas y privadas.</p>
+                </div>
             </div>
-            <div class="card-square">
-                <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?q=80&w=200" class="img-thumb-square" alt="Tecnología">
-                <h4>Tecnología y Toners</h4>
-                <p>Consumibles de impresión, tóners originales/compatibles y accesorios de computación.</p>
+
+            <div class="supply-item-accordion" data-target="img-supply-03">
+                <div class="supply-header">
+                    <span class="num">03</span> Computación y Tóners
+                </div>
+                <div class="supply-body">
+                    <p>Cartuchos de tinta, tóners originales y compatibles, periferia y accesorios informáticos con garantía para parques de impresión exigentes.</p>
+                </div>
             </div>
-            <div class="card-square">
-                <img src="https://images.unsplash.com/photo-1618042164219-62c820f10723?q=80&w=200" class="img-thumb-square" alt="EPP">
-                <h4>Seguridad y EPP</h4>
-                <p>Elementos de protección personal e indumentaria exigida para operaciones e inspección.</p>
+
+            <div class="supply-item-accordion" data-target="img-supply-04">
+                <div class="supply-header">
+                    <span class="num">04</span> Seguridad y EPP
+                </div>
+                <div class="supply-body">
+                    <p>Equipos de Protección Personal (guantes, mascarillas, calzado de seguridad y chalecos reflectantes) certificados para operarios e inspección en terreno.</p>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- CÓMO TRABAJAMOS -->
+    <!-- MERCADO PÚBLICO & PROCESOS -->
     <section id="sectores">
         <div class="section-header">
-            <h2>Especialistas en Mercado Público</h2>
-            <p>Gestión eficiente de procesos de compra estatales y privados.</p>
+            <h2>Gestión Directa y Mercado Público</h2>
+            <p>Flexibilidad, rapidez y facturación electrónica inmediata.</p>
         </div>
 
         <div class="reveal-container">
             <div class="sticky-visual">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800" alt="Convenio y Mercado Público">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800" alt="Operaciones Mercado Público Chile">
             </div>
 
             <div class="scroll-content">
                 <div class="reveal-item">
-                    <h3>01. Órdenes de Compra (OC) y Mercado Público</h3>
-                    <p>Operamos fluidamente en ChileCompra. Aceptamos Órdenes de Compra de Municipalidades, Servicios de Salud, Ministerios y Servicios Públicos.</p>
+                    <h3>01. Aceptación de Órdenes de Compra (OC)</h3>
+                    <p>Recibimos y procesamos Órdenes de Compra a través del portal ChileCompra / Mercado Público de forma rápida y sin trabas administrativas.</p>
                 </div>
                 <div class="reveal-item">
-                    <h3>02. Agilidad de Pyme, Trato Directo</h3>
-                    <p>Sin burocracia interna. Al ser una Pyme nos adaptamos rápido a tus urgencias de stock, cotizando y despachando a la brevedad.</p>
+                    <h3>02. Agilidad Pyme en Cotizaciones</h3>
+                    <p>Respuesta inmediata el mismo día para compras directas o cotizaciones formales requeridas por compradores públicos y empresas regionales.</p>
                 </div>
                 <div class="reveal-item">
-                    <h3>03. Despacho y Entrega Garantizada</h3>
-                    <p>Cuidamos la logística para asegurar que los materiales lleguen en el plazo acordado y en perfectas condiciones a las dependencias solicitadas.</p>
+                    <h3>03. Cobertura Logística Eficiente</h3>
+                    <p>Despachos coordinados para asegurar que cada producto llegue a tiempo a la oficina, servicio de salud, municipalidad o bodega correspondiente.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq">
-        <div class="section-header">
-            <h2>Preguntas Frecuentes</h2>
-            <p>Resolvemos las dudas habituales sobre nuestros procesos.</p>
-        </div>
-
-        <div class="faq-accordion">
-            <details>
-                <summary>¿Están activos en Mercado Público / ChileCompra?</summary>
-                <p>Sí, estamos registrados como proveedores del Estado y capacitados para recibir y procesar Órdenes de Compra (OC) formales.</p>
-            </details>
-            <details>
-                <summary>¿En cuánto tiempo emiten una cotización oficial?</summary>
-                <p>Como Pyme ágil, entregamos cotizaciones formales para compras directas o licitaciones habitualmente el mismo día.</p>
-            </details>
-            <details>
-                <summary>¿Atienden también a empresas privadas?</summary>
-                <p>Por supuesto, abastecemos a pymes, locales comerciales e industrias con la misma rapidez y facturación electrónica inmediata.</p>
-            </details>
-        </div>
-    </section>
-
-    <!-- FORMULARIO DE CONTACTO -->
+    <!-- FORMULARIO DE CONTACTO Y REQUERIMIENTO -->
     <div id="cotizar" class="boaxt-form-section">
         <div class="boaxt-form-content">
-            <h2 class="boaxt-form-title">Envíanos tu requerimiento o Lic. ID</h2>
-            <p class="boaxt-form-desc">Indícanos los insumos que necesitas o el número de Orden de Compra / Licitación y te responderemos inmediatamente.</p>
+            <h2 class="boaxt-form-title">Envíanos tu Requerimiento o ID de OC</h2>
+            <p class="boaxt-form-desc">Ingresa el listado de insumos que tu institución o pyme necesita y te responderemos inmediatamente.</p>
             
-            <form class="boaxt-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('¡Gracias! Hemos recibido tu solicitud y te responderemos a la brevedad.');">
+            <form class="boaxt-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('¡Gracias! Hemos recibido tu requerimiento y te responderemos a la brevedad.');">
                 <div class="boaxt-form-row">
                     <div class="boaxt-field-group">
                         <label>Nombre</label>
@@ -471,18 +541,18 @@
                 </div>
 
                 <div class="boaxt-field-group">
-                    <label>Tipo de Entidad</label>
+                    <label>Organización</label>
                     <select class="boaxt-select" required>
-                        <option value="" disabled selected>Selecciona tu tipo de organización...</option>
-                        <option value="publico">Institución Pública / Municipalidad / Hospital</option>
+                        <option value="" disabled selected>Selecciona una opción...</option>
+                        <option value="publico">Institución Pública / Municipalidad / Salud</option>
                         <option value="pyme">Empresa Privada / Pyme</option>
                         <option value="otro">Otro</option>
                     </select>
                 </div>
 
                 <div class="boaxt-field-group">
-                    <label>Detalle de Insumos o ID Mercado Público</label>
-                    <textarea class="boaxt-textarea" placeholder="Escribe los insumos requeridos, cantidades o ID de la licitación/compra..."></textarea>
+                    <label>Insumos o ID Mercado Público</label>
+                    <textarea class="boaxt-textarea" placeholder="Lista de insumos, cantidades o ID de la compra pública..."></textarea>
                 </div>
 
                 <button type="submit" class="boaxt-submit-btn">Enviar Requerimiento</button>
@@ -490,7 +560,7 @@
         </div>
 
         <div>
-            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200" class="boaxt-form-image" alt="Bodega y Logística Pyme">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200" class="boaxt-form-image" alt="Reparto Logístico Chile">
         </div>
     </div>
 
@@ -504,7 +574,7 @@
                 <span class="boaxt-brand-title">MULTICOMERCIAL ARAUCANÍA LIMITADA</span>
             </div>
 
-            <h2 class="boaxt-main-heading">Tu Pyme proveedora de confianza</h2>
+            <h2 class="boaxt-main-heading">Tu Pyme proveedora de confianza en Chile</h2>
 
             <div class="boaxt-grid">
                 <div class="boaxt-col">
@@ -542,41 +612,54 @@
         </div>
     </footer>
 
-    <!-- INTERACTIVIDAD JS -->
+    <!-- SCRIPTS INTERACTIVOS -->
     <script>
-        // 1. Carrusel de fotos
+        // 1. Carrusel Hero
         const slides = document.querySelectorAll('.slide-item');
         let currentSlide = 0;
-
         setInterval(() => {
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
         }, 4000);
 
-        // 2. EFECTO DE TRANSPARENCIA RÁPIDO Y 100% COMPLETADO
-        const manifestoSection = document.getElementById('manifestoSection');
+        // 2. EFECTO DE MANIFIESTO REPARADO MEDIANTE INTERSECTION OBSERVER Y SCROLL
         const manifestoText = document.getElementById('manifestoText');
+        const manifestoSection = document.getElementById('manifestoSection');
 
-        window.addEventListener('scroll', () => {
+        function updateManifestoOpacity() {
             const rect = manifestoSection.getBoundingClientRect();
             const windowHeight = window.innerHeight;
-
-            // Se activa tan pronto como el borde superior entra a la pantalla
-            if (rect.top < windowHeight && rect.bottom > 0) {
-                // Multiplicador acelerado para que llegue a 1.0 (100% visible) mucho antes
-                let progress = (windowHeight - rect.top) / (windowHeight * 0.45);
-                
-                // Asegurar que el rango sea de 0.15 a 1.0 (Totalmente claro)
-                let opacity = 0.15 + (progress * 0.85);
-                if (opacity > 1) opacity = 1;
-
-                let translateY = 20 - (progress * 20);
-                if (translateY < 0) translateY = 0;
-
-                manifestoText.style.opacity = opacity;
-                manifestoText.style.transform = `translateY(${translateY}px)`;
+            
+            if (rect.top < windowHeight * 0.85) {
+                manifestoText.classList.add('visible');
+            } else {
+                manifestoText.classList.remove('visible');
             }
+        }
+
+        window.addEventListener('scroll', updateManifestoOpacity);
+        window.addEventListener('load', updateManifestoOpacity);
+
+        // 3. INTERACTIVIDAD DE SUMINISTROS (HOVER / MOUSEOVER TIPO ACORDEÓN E IMAGEN DINÁMICA)
+        const accordionItems = document.querySelectorAll('.supply-item-accordion');
+        const supplyImages = document.querySelectorAll('.supplies-left-image img');
+
+        accordionItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                // Quitar clase activa de todos los botones e imágenes
+                accordionItems.forEach(i => i.classList.remove('active'));
+                supplyImages.forEach(img => img.classList.remove('active'));
+
+                // Activar el elemento hover
+                item.classList.add('active');
+                const targetId = item.getAttribute('data-target');
+                const targetImg = document.getElementById(targetId);
+                
+                if (targetImg) {
+                    targetImg.classList.add('active');
+                }
+            });
         });
     </script>
 
