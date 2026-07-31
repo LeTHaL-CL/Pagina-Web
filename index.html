@@ -20,10 +20,9 @@
         }
 
         /* ============================================================ */
-        /* NAVEGACIÓN Y HERO ESTILO BOAXT CON VÍDEO                     */
+        /* NAVEGACIÓN Y HERO ESTILO BOAXT CON DIAPOSITIVAS / GRID       */
         /* ============================================================ */
         
-        /* Navegación BOAXT */
         nav { 
             position: fixed; 
             top: 0; 
@@ -34,7 +33,7 @@
             justify-content: space-between; 
             align-items: center; 
             z-index: 1000;
-            background: rgba(9, 13, 22, 0.4);
+            background: rgba(9, 13, 22, 0.45);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -60,7 +59,7 @@
         }
         .btn-nav:hover { background: #155d97 !important; }
 
-        /* Hero BOAXT con Vídeo de Fondo */
+        /* Hero con Fondo de Imágenes Dinámicas (Efecto Presentación) */
         .boaxt-hero-wrapper {
             position: relative;
             width: 100%;
@@ -73,17 +72,30 @@
             background-color: #090d16;
         }
 
-        .hero-video-bg {
+        /* Galería/Carrusel tipo cuadrícula de fondo */
+        .hero-slideshow-grid {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: 1;
+        }
+
+        .slide-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .slide-item.active {
+            opacity: 0.65;
         }
 
         .hero-overlay {
@@ -92,7 +104,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(9, 13, 22, 0.6), rgba(9, 13, 22, 0.88));
+            background: linear-gradient(to bottom, rgba(9, 13, 22, 0.5), rgba(9, 13, 22, 0.9));
             z-index: 2;
         }
 
@@ -108,9 +120,7 @@
             gap: 40px;
         }
 
-        .boaxt-hero-left {
-            max-width: 700px;
-        }
+        .boaxt-hero-left { max-width: 700px; }
 
         .boaxt-hero-title {
             font-size: 4.2rem;
@@ -149,11 +159,8 @@
             transition: background 0.2s;
         }
 
-        .boaxt-hero-btn:hover {
-            background: #155d97;
-        }
+        .boaxt-hero-btn:hover { background: #155d97; }
 
-        /* Responsive Layout Boaxt Hero */
         @media (max-width: 992px) {
             nav { padding: 15px 20px; }
             .nav-links a:not(.btn-nav) { display: none; }
@@ -163,43 +170,67 @@
         }
 
         /* ============================================================ */
-        /* SECCIÓN MANIFIESTO Y GRID PATTERN (ESTILO IMAGEN REQUERIDA)  */
+        /* SECCIÓN MANIFIESTO: CUADRÍCULA DIFUMINADA + SCROLL REVEAL    */
         /* ============================================================ */
         .manifesto-section {
             position: relative;
             width: 100%;
-            padding: 140px 5%;
-            background-color: #fbfbfc;
-            /* Patrón de cuadrícula tenue estilo gráfico/arquitectónico */
+            padding: 180px 5%;
+            background-color: #ffffff;
+            /* Cuadrícula técnica sutilmente difuminada */
             background-image: 
-                linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
-            background-size: 50px 50px;
+                linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+            background-size: 45px 45px;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            border-bottom: 1px solid #eaeaea;
+            border-bottom: 1px solid #f0f0f0;
+            overflow: hidden;
+        }
+
+        /* Efecto de difuminado periférico en las esquinas de la cuadrícula */
+        .manifesto-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, transparent 40%, rgba(255, 255, 255, 0.8) 100%);
+            pointer-events: none;
         }
 
         .manifesto-container {
-            max-width: 900px;
+            max-width: 1050px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
         }
 
+        /* Estado inicial del texto: transparente y leve desenfoque */
         .manifesto-text {
-            font-size: 2.2rem;
-            font-weight: 400;
-            color: #1a1a1a;
-            line-height: 1.35;
-            letter-spacing: -0.5px;
+            font-size: 3.1rem;
+            font-weight: 300;
+            color: #090d16;
+            line-height: 1.25;
+            letter-spacing: -1.2px;
+            opacity: 0.15;
+            filter: blur(4px);
+            transform: translateY(20px);
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                        filter 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Estado activo al scroll: se vuelve completamente legible */
+        .manifesto-text.visible {
+            opacity: 1;
+            filter: blur(0px);
+            transform: translateY(0);
         }
 
         .manifesto-text strong {
             font-weight: 700;
-            color: #090d16;
+            color: #000000;
         }
 
         .manifesto-text span.highlight {
@@ -207,14 +238,13 @@
             font-weight: 600;
         }
 
-        @media (max-width: 768px) {
-            .manifesto-section { padding: 90px 6%; background-size: 30px 30px; }
-            .manifesto-text { font-size: 1.5rem; line-height: 1.4; }
+        @media (max-width: 900px) {
+            .manifesto-section { padding: 120px 6%; background-size: 30px 30px; }
+            .manifesto-text { font-size: 2.1rem; letter-spacing: -0.5px; }
         }
 
-
         /* ============================================================ */
-        /* SECCIONES CONTENIDAS Y COMPONENTES EXISTENTES                */
+        /* OTRAS SECCIONES DE LA PÁGINA                                  */
         /* ============================================================ */
         section { padding: 90px 5%; max-width: 1050px; margin: 0 auto; }
         
@@ -246,7 +276,7 @@
         .reveal-item h3 { font-size: 1.25rem; font-weight: 800; color: #090d16; margin-bottom: 10px; }
         .reveal-item p { color: #475569; font-size: 0.92rem; font-weight: 500; }
 
-        /* PREGUNTAS FRECUENTES DESPLEGABLES */
+        /* FAQ */
         .faq-accordion { display: flex; flex-direction: column; gap: 12px; }
         details { background: #ffffff; border: 2px solid #090d16; padding: 16px 20px; cursor: pointer; box-shadow: 3px 3px 0px #090d16; transition: all 0.2s; }
         details[open] { background: #f8fafc; border-color: #1C79C4; }
@@ -256,277 +286,43 @@
         details[open] summary::after { content: '−'; }
         details p { margin-top: 12px; color: #475569; font-size: 0.9rem; border-top: 1.5px solid #090d16; padding-top: 12px; font-weight: 500; }
 
+        /* FORMULARIO Y FOOTER BOAXT */
+        .boaxt-form-section { background-color: #1C79C4; color: #ffffff; display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+        .boaxt-form-content { padding: 80px 60px; max-width: 650px; justify-self: end; width: 100%; }
+        .boaxt-form-title { font-size: 3.2rem; font-weight: 600; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 20px; }
+        .boaxt-form-desc { font-size: 1.05rem; color: #f1f5f9; line-height: 1.5; margin-bottom: 40px; font-weight: 400; }
+        .boaxt-form { display: flex; flex-direction: column; gap: 20px; }
+        .boaxt-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .boaxt-field-group { display: flex; flex-direction: column; gap: 8px; }
+        .boaxt-field-group label { font-size: 0.9rem; font-weight: 500; color: #ffffff; }
+        .boaxt-input, .boaxt-select, .boaxt-textarea { width: 100%; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.4); padding: 12px 16px; color: #ffffff; font-size: 0.95rem; outline: none; transition: all 0.2s; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .boaxt-input::placeholder, .boaxt-textarea::placeholder { color: rgba(255, 255, 255, 0.7); }
+        .boaxt-select { color: #ffffff; cursor: pointer; }
+        .boaxt-select option { background: #1C79C4; color: #ffffff; }
+        .boaxt-textarea { resize: vertical; min-height: 120px; }
+        .boaxt-submit-btn { background-color: #0f172a; color: #ffffff; border: none; padding: 16px 36px; font-size: 0.95rem; font-weight: 700; cursor: pointer; width: fit-content; margin-top: 10px; transition: background-color 0.2s; }
+        .boaxt-submit-btn:hover { background-color: #020617; }
+        .boaxt-form-image { width: 100%; height: 100%; object-fit: cover; min-height: 500px; }
 
-        /* ============================================================ */
-        /* SECCIONES FORMULARIO BOAXT Y FOOTER                          */
-        /* ============================================================ */
-        .boaxt-form-section {
-            background-color: #1C79C4;
-            color: #ffffff;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            width: 100%;
-        }
-
-        .boaxt-form-content {
-            padding: 80px 60px;
-            max-width: 650px;
-            justify-self: end;
-            width: 100%;
-        }
-
-        .boaxt-form-title {
-            font-size: 3.2rem;
-            font-weight: 600;
-            line-height: 1.1;
-            letter-spacing: -1.5px;
-            margin-bottom: 20px;
-        }
-
-        .boaxt-form-desc {
-            font-size: 1.05rem;
-            color: #f1f5f9;
-            line-height: 1.5;
-            margin-bottom: 40px;
-            font-weight: 400;
-        }
-
-        .boaxt-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .boaxt-form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .boaxt-field-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .boaxt-field-group label {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #ffffff;
-        }
-
-        .boaxt-input, .boaxt-select, .boaxt-textarea {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            padding: 12px 16px;
-            color: #ffffff;
-            font-size: 0.95rem;
-            outline: none;
-            transition: all 0.2s;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .boaxt-input::placeholder, .boaxt-textarea::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .boaxt-input:focus, .boaxt-select:focus, .boaxt-textarea:focus {
-            border-color: #ffffff;
-            background: rgba(255, 255, 255, 0.22);
-        }
-
-        .boaxt-select {
-            color: #ffffff;
-            cursor: pointer;
-        }
-
-        .boaxt-select option {
-            background: #1C79C4;
-            color: #ffffff;
-        }
-
-        .boaxt-textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .boaxt-submit-btn {
-            background-color: #0f172a;
-            color: #ffffff;
-            border: none;
-            padding: 16px 36px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            cursor: pointer;
-            width: fit-content;
-            margin-top: 10px;
-            transition: background-color 0.2s;
-        }
-
-        .boaxt-submit-btn:hover {
-            background-color: #020617;
-        }
-
-        .boaxt-form-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            min-height: 500px;
-        }
-
-        /* FOOTER / CONTACTO EN OSCURO */
-        .boaxt-footer-section {
-            background-color: #0b111e;
-            color: #ffffff;
-            padding: 90px 20px 40px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .boaxt-container {
-            max-width: 1050px;
-            margin: 0 auto;
-        }
-
-        .boaxt-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-        .boaxt-brand-icon {
-            width: 28px;
-            height: 28px;
-            fill: #1C79C4;
-        }
-        .boaxt-brand-title {
-            font-size: 1.3rem;
-            font-weight: 800;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            color: #ffffff;
-        }
-        .boaxt-main-heading {
-            font-size: 3.5rem;
-            font-weight: 500;
-            color: #94a3b8;
-            letter-spacing: -1.5px;
-            margin-bottom: 70px;
-            line-height: 1.1;
-        }
-
-        .boaxt-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 80px;
-        }
-
-        .boaxt-col {
-            position: relative;
-            padding-top: 20px;
-        }
-
-        .boaxt-col::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(to right, #475569 88%, transparent 88%);
-        }
-        .boaxt-col::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 12%;
-            width: 25px;
-            height: 1px;
-            background: #475569;
-            transform: rotate(35deg);
-            transform-origin: right top;
-        }
-
-        .boaxt-col-label {
-            font-size: 0.95rem;
-            color: #94a3b8;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        .boaxt-col-value {
-            font-size: 1.1rem;
-            color: #ffffff;
-            font-weight: 600;
-            line-height: 1.5;
-        }
-
-        .boaxt-col-value-large {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #ffffff;
-            letter-spacing: -0.5px;
-            margin-bottom: 6px;
-        }
-        .boaxt-email-link {
-            font-size: 1.4rem;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        .boaxt-email-link:hover {
-            color: #60a5fa;
-        }
-
-        .boaxt-social-group {
-            display: flex;
-            gap: 12px;
-            margin-top: 15px;
-        }
-        .boaxt-social-btn {
-            width: 42px;
-            height: 42px;
-            background-color: #1C79C4;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.2s, transform 0.2s;
-            text-decoration: none;
-        }
-        .boaxt-social-btn:hover {
-            background-color: #155d97;
-            transform: translateY(-2px);
-        }
-        .boaxt-social-btn svg {
-            width: 20px;
-            height: 20px;
-            fill: #ffffff;
-        }
-
-        .boaxt-bottom-bar {
-            border-top: 1px solid #1e293b;
-            padding-top: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.85rem;
-            color: #64748b;
-        }
-        .boaxt-legal-links {
-            display: flex;
-            gap: 25px;
-        }
-        .boaxt-legal-links a {
-            color: #64748b;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .boaxt-legal-links a:hover {
-            color: #94a3b8;
-        }
+        .boaxt-footer-section { background-color: #0b111e; color: #ffffff; padding: 90px 20px 40px; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .boaxt-container { max-width: 1050px; margin: 0 auto; }
+        .boaxt-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 25px; }
+        .boaxt-brand-icon { width: 28px; height: 28px; fill: #1C79C4; }
+        .boaxt-brand-title { font-size: 1.3rem; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase; color: #ffffff; }
+        .boaxt-main-heading { font-size: 3.5rem; font-weight: 500; color: #94a3b8; letter-spacing: -1.5px; margin-bottom: 70px; line-height: 1.1; }
+        .boaxt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 80px; }
+        .boaxt-col { position: relative; padding-top: 20px; }
+        .boaxt-col::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 1px; background: linear-gradient(to right, #475569 88%, transparent 88%); }
+        .boaxt-col-label { font-size: 0.95rem; color: #94a3b8; margin-bottom: 8px; font-weight: 500; }
+        .boaxt-col-value { font-size: 1.1rem; color: #ffffff; font-weight: 600; line-height: 1.5; }
+        .boaxt-col-value-large { font-size: 1.8rem; font-weight: 700; color: #ffffff; letter-spacing: -0.5px; margin-bottom: 6px; }
+        .boaxt-email-link { font-size: 1.4rem; color: #ffffff; text-decoration: none; font-weight: 600; transition: color 0.2s; display: inline-block; margin-bottom: 20px; }
+        .boaxt-social-group { display: flex; gap: 12px; margin-top: 15px; }
+        .boaxt-social-btn { width: 42px; height: 42px; background-color: #1C79C4; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+        .boaxt-social-btn svg { width: 20px; height: 20px; fill: #ffffff; }
+        .boaxt-bottom-bar { border-top: 1px solid #1e293b; padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #64748b; }
+        .boaxt-legal-links { display: flex; gap: 25px; }
+        .boaxt-legal-links a { color: #64748b; text-decoration: none; }
 
         @media (max-width: 900px) {
             .boaxt-form-section { grid-template-columns: 1fr; }
@@ -545,7 +341,7 @@
 </head>
 <body>
 
-    <!-- MENÚ SUPERIOR ESTILO BOAXT -->
+    <!-- NAVEGACIÓN -->
     <nav>
         <a href="#" class="logo-container">
             <svg class="logo-icon" viewBox="0 0 24 24">
@@ -561,14 +357,14 @@
         </div>
     </nav>
 
-    <!-- HERO FULLSCREEN ESTILO BOAXT CON VÍDEO EN BUCLE -->
+    <!-- HERO CON DIAPOSITIVAS EN BUCLE (EFECTO PRESENTACIÓN / DIAPOSITIVAS) -->
     <header class="boaxt-hero-wrapper">
-        <!-- Vídeo CDN directo optimizado en MP4 -->
-        <video class="hero-video-bg" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1920">
-            <source src="https://cdn.coverr.co/videos/coverr-a-worker-organizing-boxes-in-a-warehouse-5178/1080p.mp4" type="video/mp4">
-        </video>
+        <div class="hero-slideshow-grid">
+            <div class="slide-item active" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1920');"></div>
+            <div class="slide-item" style="background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1920');"></div>
+            <div class="slide-item" style="background-image: url('https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=1920');"></div>
+        </div>
         
-        <!-- Capa semitransparente para legibilidad -->
         <div class="hero-overlay"></div>
 
         <div class="boaxt-hero-container">
@@ -582,17 +378,17 @@
         </div>
     </header>
 
-    <!-- NUEVA SECCIÓN ESTILO GRID PATTERN CON DECLARACIÓN DE COMPROMISO -->
+    <!-- SECCIÓN CON CUADRÍCULA DIFUMINADA + EFECTO DE LUZ AL BAJAR EL CURSOR -->
     <div class="manifesto-section">
         <div class="manifesto-container">
-            <p class="manifesto-text">
+            <p class="manifesto-text" id="manifestoText">
                 Desde <strong>2024</strong>, la efectividad operativa es nuestra norma. 
                 <span class="highlight">Multicomercial Araucanía</span> impulsa el abastecimiento integral del sector público con transparencia rigurosa, cumplimiento estricto y disponibilidad garantizada en cada proceso.
             </p>
         </div>
     </div>
 
-    <!-- SUMINISTROS (TARJETAS CUADRADAS) -->
+    <!-- SUMINISTROS -->
     <section id="suministros">
         <div class="section-header">
             <h2>Líneas de Suministro</h2>
@@ -623,7 +419,7 @@
         </div>
     </section>
 
-    <!-- SECTORES CON REVELADO STICKY SCROLL -->
+    <!-- SECTORES -->
     <section id="sectores">
         <div class="section-header">
             <h2>Sectores de Atención</h2>
@@ -675,7 +471,7 @@
         </div>
     </section>
 
-    <!-- FORMULARIO ESTILO BOAXT (#1C79C4 Y EN ESPAÑOL) -->
+    <!-- FORMULARIO -->
     <div id="cotizar" class="boaxt-form-section">
         <div class="boaxt-form-content">
             <h2 class="boaxt-form-title">¿Listo para Abastecer su Organización?</h2>
@@ -724,16 +520,14 @@
             </form>
         </div>
 
-        <!-- Imagen Referencial de Logística y Abastecimiento -->
         <div>
             <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200" class="boaxt-form-image" alt="Almacén y Abastecimiento Logístico">
         </div>
     </div>
 
-    <!-- FOOTER / CONTACTO EN OSCURO -->
+    <!-- FOOTER -->
     <footer class="boaxt-footer-section" id="contacto">
         <div class="boaxt-container">
-            
             <div class="boaxt-brand">
                 <svg class="boaxt-brand-icon" viewBox="0 0 24 24">
                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
@@ -744,12 +538,10 @@
             <h2 class="boaxt-main-heading">Soluciones Integrales de Abastecimiento</h2>
 
             <div class="boaxt-grid">
-                
                 <div class="boaxt-col">
                     <div class="boaxt-col-label">Casa Matriz</div>
                     <div class="boaxt-col-value">
-                        Región de La Araucanía<br>
-                        Chile
+                        Región de La Araucanía<br>Chile
                     </div>
                 </div>
 
@@ -766,7 +558,6 @@
                         </a>
                     </div>
                 </div>
-
             </div>
 
             <div class="boaxt-bottom-bar">
@@ -779,9 +570,36 @@
                     © 2026 MULTICOMERCIAL ARAUCANÍA LIMITADA. Todos los derechos reservados.
                 </div>
             </div>
-
         </div>
     </footer>
+
+    <!-- INTERACTIVIDAD JS PARA EL DIAPORAMA Y EL EFECTO AL BAJAR -->
+    <script>
+        // 1. Carrusel dinámico de imágenes tipo diapositivas
+        const slides = document.querySelectorAll('.slide-item');
+        let currentSlide = 0;
+
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 4000);
+
+        // 2. Transición de opacidad/claridad del texto al desplazarse
+        const textElement = document.getElementById('manifestoText');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    textElement.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.35 // Se activa cuando el 35% de la sección ingresa en pantalla
+        });
+
+        observer.observe(textElement);
+    </script>
 
 </body>
 </html>
