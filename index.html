@@ -56,7 +56,7 @@
         }
         .btn-nav:hover { background: #155d97 !important; }
 
-        /* HERO - FOTOS ENTORNO LOGÍSTICO Y ABASTECIMIENTO CHILE */
+        /* HERO - FOTOS DE PYME CHILENA (ESCALA CERCANA Y REALISTA) */
         .boaxt-hero-wrapper {
             position: relative;
             width: 100%;
@@ -90,7 +90,7 @@
             transition: opacity 1.5s ease-in-out;
         }
 
-        .slide-item.active { opacity: 0.65; }
+        .slide-item.active { opacity: 0.6; }
 
         .hero-overlay {
             position: absolute;
@@ -98,7 +98,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(9, 13, 22, 0.4), rgba(9, 13, 22, 0.88));
+            background: linear-gradient(to bottom, rgba(9, 13, 22, 0.45), rgba(9, 13, 22, 0.88));
             z-index: 2;
         }
 
@@ -155,11 +155,11 @@
 
         .boaxt-hero-btn:hover { background: #155d97; }
 
-        /* MANIFIESTO CON GRILLA Y TRANSPARENCIA REPARADA */
+        /* MANIFIESTO */
         .manifesto-section {
             position: relative;
             width: 100%;
-            padding: 160px 5%;
+            padding: 150px 5%;
             background-color: #ffffff;
             background-image: url('https://cdn.prod.website-files.com/69e06189e1e5e41f5931bf65/69e2f3ba28bbe97219c18c0c_Frame%202147227196.png');
             background-repeat: repeat;
@@ -173,12 +173,7 @@
             overflow: hidden;
         }
 
-        .manifesto-container {
-            max-width: 1050px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
+        .manifesto-container { max-width: 1050px; margin: 0 auto; position: relative; z-index: 2; }
 
         .manifesto-text {
             font-size: 3.2rem;
@@ -186,7 +181,7 @@
             color: #090d16;
             line-height: 1.25;
             letter-spacing: -1.2px;
-            opacity: 0.1; /* Inicia tenue */
+            opacity: 0.1;
             transform: translateY(30px);
             transition: opacity 0.4s ease-out, transform 0.4s ease-out;
             will-change: opacity, transform;
@@ -200,13 +195,13 @@
         .manifesto-text strong { font-weight: 800; color: #000000; }
         .manifesto-text span.highlight { color: #1C79C4; font-weight: 700; }
 
-        /* NUEVA SECCIÓN DE SUMINISTROS INTERACTIVA (ESTILO DE LA IMAGEN) */
+        /* SECCIÓN DE SUMINISTROS INTERACTIVA MEJORADA */
         .interactive-supplies-section {
             width: 100%;
-            background-color: #0b1726; /* Color de fondo oscuro elegante */
+            background-color: #0b1726;
             color: #ffffff;
             display: flex;
-            min-height: 620px;
+            min-height: 640px;
             position: relative;
         }
 
@@ -227,6 +222,7 @@
             opacity: 0;
             transition: opacity 0.5s ease-in-out, transform 0.6s ease;
             transform: scale(1.03);
+            filter: brightness(0.9) contrast(1.05);
         }
 
         .supplies-left-image img.active {
@@ -236,39 +232,48 @@
 
         .supplies-right-content {
             width: 50%;
-            background-color: #09192b; /* Azul oscuro matching */
+            background-color: #09192b;
             padding: 80px 60px;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
+        .supplies-tag {
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #1C79C4;
+            margin-bottom: 12px;
+        }
+
         .supplies-main-title {
             font-size: 2.8rem;
             font-weight: 700;
             line-height: 1.15;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             color: #ffffff;
             letter-spacing: -1px;
         }
 
         .supply-item-accordion {
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 24px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 22px 0;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.2s;
         }
 
         .supply-item-accordion:last-child {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
         }
 
         .supply-header {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            color: #94a3b8;
+            color: #8fa0b5;
             transition: color 0.3s;
             display: flex;
             align-items: center;
@@ -276,8 +281,9 @@
         }
 
         .supply-header span.num {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #1C79C4;
+            font-weight: 800;
         }
 
         .supply-body {
@@ -288,13 +294,12 @@
         }
 
         .supply-body p {
-            font-size: 0.98rem;
+            font-size: 0.95rem;
             color: #cbd5e1;
             line-height: 1.6;
             font-weight: 400;
         }
 
-        /* Estado Activo / Hover de la lista desplegable */
         .supply-item-accordion:hover .supply-header,
         .supply-item-accordion.active .supply-header {
             color: #ffffff;
@@ -302,12 +307,12 @@
 
         .supply-item-accordion:hover .supply-body,
         .supply-item-accordion.active .supply-body {
-            max-height: 150px;
-            margin-top: 14px;
+            max-height: 160px;
+            margin-top: 12px;
             opacity: 1;
         }
 
-        /* OTROS ESTILOS & FOOTER */
+        /* OTRAS SECCIONES */
         section { padding: 90px 5%; max-width: 1050px; margin: 0 auto; }
         .section-header { text-align: left; margin-bottom: 45px; border-bottom: 2px solid #090d16; padding-bottom: 18px; }
         .section-header h2 { font-size: 2.1rem; font-weight: 800; letter-spacing: -1px; color: #090d16; }
@@ -322,6 +327,7 @@
         .reveal-item h3 { font-size: 1.25rem; font-weight: 800; color: #090d16; margin-bottom: 10px; }
         .reveal-item p { color: #475569; font-size: 0.92rem; font-weight: 500; }
 
+        /* FORMULARIO & FOOTER */
         .boaxt-form-section { background-color: #1C79C4; color: #ffffff; display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
         .boaxt-form-content { padding: 80px 60px; max-width: 650px; justify-self: end; width: 100%; }
         .boaxt-form-title { font-size: 3rem; font-weight: 700; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 20px; }
@@ -361,7 +367,7 @@
         @media (max-width: 992px) {
             .interactive-supplies-section { flex-direction: column; }
             .supplies-left-image, .supplies-right-content { width: 100%; }
-            .supplies-left-image { height: 350px; }
+            .supplies-left-image { height: 380px; }
             .supplies-right-content { padding: 50px 30px; }
             .boaxt-form-section { grid-template-columns: 1fr; }
             .boaxt-form-content { padding: 50px 25px; max-width: 100%; }
@@ -398,12 +404,14 @@
         </div>
     </nav>
 
-    <!-- HERO LOGÍSTICA REAL DE CHILE -->
+    <!-- HERO CON IMÁGENES DE PYME LOCAL Y REPARTO CERCANO -->
     <header class="boaxt-hero-wrapper">
         <div class="hero-slideshow-grid">
-            <!-- Fotos de bodegas, camiones de reparto y operaciones de abastecimiento en Chile -->
-            <div class="slide-item active" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1920');"></div>
-            <div class="slide-item" style="background-image: url('https://images.unsplash.com/photo-1616401784845-180882ba9ba8?q=80&w=1920');"></div>
+            <!-- Camión liviano de reparto local -->
+            <div class="slide-item active" style="background-image: url('https://images.unsplash.com/photo-1542282811-943ef1a977c3?q=80&w=1920');"></div>
+            <!-- Bodega regional limpia y organizada -->
+            <div class="slide-item" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1920');"></div>
+            <!-- Preparación de pedidos y cajas -->
             <div class="slide-item" style="background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1920');"></div>
         </div>
         
@@ -420,7 +428,7 @@
         </div>
     </header>
 
-    <!-- MANIFIESTO CON EFECTO DE VISIBILIDAD / TRANSPARENCIA GARANTIZADO -->
+    <!-- MANIFIESTO -->
     <div class="manifesto-section" id="manifestoSection">
         <div class="manifesto-container">
             <p class="manifesto-text" id="manifestoText">
@@ -430,59 +438,68 @@
         </div>
     </div>
 
-    <!-- SECCIÓN INTERACTIVA ESTILO DE LA IMAGEN (CAMBIO DE FOTO AL PASAR MOUSE) -->
+    <!-- SECCIÓN DE SUMINISTROS CON FOTOS PERFECCIONADAS Y TEXTOS OPTIMIZADOS -->
     <div class="interactive-supplies-section" id="suministros">
-        <!-- Panel Izquierdo: Imagen Grande Cambiante -->
+        <!-- Panel Izquierdo: Fotos Pulidas y Exactas para cada Rubro -->
         <div class="supplies-left-image">
-            <img src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?q=80&w=1200" id="img-supply-01" class="active" alt="Aseo e Higiene Chile">
-            <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=1200" id="img-supply-02" alt="Oficina y Papeleria Chile">
-            <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?q=80&w=1200" id="img-supply-03" alt="Tecnología y Toners Chile">
-            <img src="https://images.unsplash.com/photo-1618042164219-62c820f10723?q=80&w=1200" id="img-supply-04" alt="Seguridad y EPP Chile">
+            <!-- 01 Aseo e Higiene: Insumos de limpieza profesional -->
+            <img src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?q=80&w=1200" id="img-supply-01" class="active" alt="Insumos de Aseo Institucional">
+            <!-- 02 Papelería y Oficina: Resmas y carpetas ordenadas -->
+            <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=1200" id="img-supply-02" alt="Papeleria e Insumos de Oficina">
+            <!-- 03 Computación e Impresión: Tóners e insumos informáticos -->
+            <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?q=80&w=1200" id="img-supply-03" alt="Tóners e Insumos de Computación">
+            <!-- 04 Seguridad y EPP: Guantes, cascos y elementos EPP -->
+            <img src="https://images.unsplash.com/photo-1584467735871-8e85353a8413?q=80&w=1200" id="img-supply-04" alt="Elementos de Protección Personal EPP">
         </div>
 
-        <!-- Panel Derecho: Título y Lista Acordeón Interactivo -->
+        <!-- Panel Derecho: Textos Comerciales Pulidos -->
         <div class="supplies-right-content">
-            <h2 class="supplies-main-title">Línea de Suministros Integrales</h2>
+            <div class="supplies-tag">Catálogo de Productos</div>
+            <h2 class="supplies-main-title">Líneas de Suministros Integrales</h2>
 
+            <!-- Opción 01 -->
             <div class="supply-item-accordion active" data-target="img-supply-01">
                 <div class="supply-header">
                     <span class="num">01</span> Aseo e Higiene Institucional
                 </div>
                 <div class="supply-body">
-                    <p>Insumos de desinfección, jabones, dispensadores, toallas de papel y productos químicos de alto rendimiento adaptados para licitaciones y compras públicas.</p>
+                    <p>Detergentes industriales, desinfectantes, jabón líquido, dispensadores y toallas de papel. Productos formulados para mantener estándares de desinfección exigidos en oficinas públicas, hospitales y colegios.</p>
                 </div>
             </div>
 
+            <!-- Opción 02 -->
             <div class="supply-item-accordion" data-target="img-supply-02">
                 <div class="supply-header">
                     <span class="num">02</span> Oficina, Resmas y Papelería
                 </div>
                 <div class="supply-body">
-                    <p>Resmas Carta y Oficio, archivadores, carpetas y artículos de escritorio indispensables para el funcionamiento continuo de reparticiones públicas y privadas.</p>
+                    <p>Resmas de papel Carta y Oficio de alto blanco, archivadores de palanca, carpetas institucionales y útiles de escritorio. Abastecimiento continuo para evitar la interrupción de procesos administrativos.</p>
                 </div>
             </div>
 
+            <!-- Opción 03 -->
             <div class="supply-item-accordion" data-target="img-supply-03">
                 <div class="supply-header">
                     <span class="num">03</span> Computación y Tóners
                 </div>
                 <div class="supply-body">
-                    <p>Cartuchos de tinta, tóners originales y compatibles, periferia y accesorios informáticos con garantía para parques de impresión exigentes.</p>
+                    <p>Consumibles de impresión, tóners originales y compatibles garantizados, tintas, accesorios informáticos, cables y periféricos para parques tecnológicos de instituciones públicas y privadas.</p>
                 </div>
             </div>
 
+            <!-- Opción 04 -->
             <div class="supply-item-accordion" data-target="img-supply-04">
                 <div class="supply-header">
-                    <span class="num">04</span> Seguridad y EPP
+                    <span class="num">04</span> Seguridad y Protección (EPP)
                 </div>
                 <div class="supply-body">
-                    <p>Equipos de Protección Personal (guantes, mascarillas, calzado de seguridad y chalecos reflectantes) certificados para operarios e inspección en terreno.</p>
+                    <p>Elementos de Protección Personal certificados: mascarillas, guantes de nitrilo, calzado de seguridad, chalecos reflectantes y antiparras para personal operativo, de aseo o inspección en terreno.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- MERCADO PÚBLICO & PROCESOS -->
+    <!-- MERCADO PÚBLICO -->
     <section id="sectores">
         <div class="section-header">
             <h2>Gestión Directa y Mercado Público</h2>
@@ -511,7 +528,7 @@
         </div>
     </section>
 
-    <!-- FORMULARIO DE CONTACTO Y REQUERIMIENTO -->
+    <!-- FORMULARIO DE CONTACTO -->
     <div id="cotizar" class="boaxt-form-section">
         <div class="boaxt-form-content">
             <h2 class="boaxt-form-title">Envíanos tu Requerimiento o ID de OC</h2>
@@ -560,7 +577,8 @@
         </div>
 
         <div>
-            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200" class="boaxt-form-image" alt="Reparto Logístico Chile">
+            <!-- Foto de reparto eficiente Pyme -->
+            <img src="https://images.unsplash.com/photo-1542282811-943ef1a977c3?q=80&w=1200" class="boaxt-form-image" alt="Reparto Logístico Pyme Chile">
         </div>
     </div>
 
@@ -612,9 +630,9 @@
         </div>
     </footer>
 
-    <!-- SCRIPTS INTERACTIVOS -->
+    <!-- SCRIPTS -->
     <script>
-        // 1. Carrusel Hero
+        // Carrusel Hero
         const slides = document.querySelectorAll('.slide-item');
         let currentSlide = 0;
         setInterval(() => {
@@ -623,14 +641,13 @@
             slides[currentSlide].classList.add('active');
         }, 4000);
 
-        // 2. EFECTO DE MANIFIESTO REPARADO MEDIANTE INTERSECTION OBSERVER Y SCROLL
+        // Manifiesto Scroll/Opacidad
         const manifestoText = document.getElementById('manifestoText');
         const manifestoSection = document.getElementById('manifestoSection');
 
         function updateManifestoOpacity() {
             const rect = manifestoSection.getBoundingClientRect();
             const windowHeight = window.innerHeight;
-            
             if (rect.top < windowHeight * 0.85) {
                 manifestoText.classList.add('visible');
             } else {
@@ -641,17 +658,15 @@
         window.addEventListener('scroll', updateManifestoOpacity);
         window.addEventListener('load', updateManifestoOpacity);
 
-        // 3. INTERACTIVIDAD DE SUMINISTROS (HOVER / MOUSEOVER TIPO ACORDEÓN E IMAGEN DINÁMICA)
+        // Interactividad Hover en Línea de Suministros
         const accordionItems = document.querySelectorAll('.supply-item-accordion');
         const supplyImages = document.querySelectorAll('.supplies-left-image img');
 
         accordionItems.forEach(item => {
             item.addEventListener('mouseenter', () => {
-                // Quitar clase activa de todos los botones e imágenes
                 accordionItems.forEach(i => i.classList.remove('active'));
                 supplyImages.forEach(img => img.classList.remove('active'));
 
-                // Activar el elemento hover
                 item.classList.add('active');
                 const targetId = item.getAttribute('data-target');
                 const targetImg = document.getElementById(targetId);
