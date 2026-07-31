@@ -642,60 +642,68 @@
         </div>
     </section>
 
-    <!-- FORMULARIO DE CONTACTO -->
+   <!-- ============================================================ -->
+    <!-- FORMULARIO ESTILO BOAXT (#1C79C4 Y FUNCIONAL CON FORMSUBMIT) -->
+    <!-- ============================================================ -->
     <div id="cotizar" class="boaxt-form-section">
         <div class="boaxt-form-content">
             <h2 class="boaxt-form-title">Envíanos tu Requerimiento o ID de OC</h2>
             <p class="boaxt-form-desc">Ingresa el listado de insumos que tu institución o pyme necesita y te responderemos inmediatamente.</p>
             
             <!-- CÓDIGO CONECTADO A TU CORREO: -->
-<form action="https://formsubmit.co/multicomercial.araucania@gmail.com" method="POST">
-    <!-- Configuración invisible -->
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_subject" value="¡Nueva Cotización Web - Multicomercial Araucanía!">
+<form class="boaxt-form" action="https://formsubmit.co/multicomercial.araucania@gmail.com" method="POST">
+                <!-- Configuración de FormSubmit -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="¡Nueva Cotización Web - Multicomercial Araucanía!">
 
-    <!-- Campo Nombre -->
-    <div style="margin-bottom: 15px; text-align: left;">
-        <label style="display: block; margin-bottom: 5px; font-weight: 600; color: #334155;">Nombre completo *</label>
-        <input type="text" name="Nombre" placeholder="Tu nombre y apellido" required style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px;">
-    </div>
+                <div class="boaxt-form-row">
+                    <div class="boaxt-field-group">
+                        <label>Nombre</label>
+                        <input type="text" name="Nombre" class="boaxt-input" placeholder="Tu nombre..." required>
+                    </div>
+                    <div class="boaxt-field-group">
+                        <label>Apellido</label>
+                        <input type="text" name="Apellido" class="boaxt-input" placeholder="Tu apellido..." required>
+                    </div>
+                </div>
 
-    <!-- Campo Correo -->
-    <div style="margin-bottom: 15px; text-align: left;">
-        <label style="display: block; margin-bottom: 5px; font-weight: 600; color: #334155;">Correo Electrónico *</label>
-        <input type="email" name="Email" placeholder="contacto@ejemplo.cl" required style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px;">
-    </div>
+                <div class="boaxt-form-row">
+                    <div class="boaxt-field-group">
+                        <label>Correo Electrónico</label>
+                        <input type="email" name="Email" class="boaxt-input" placeholder="ejemplo@institucion.cl" required>
+                    </div>
+                    <div class="boaxt-field-group">
+                        <label>Teléfono de Contacto</label>
+                        <input type="tel" name="Telefono" class="boaxt-input" placeholder="+56 9 ..." required>
+                    </div>
+                </div>
 
-    <!-- Campo Teléfono -->
-    <div style="margin-bottom: 15px; text-align: left;">
-        <label style="display: block; margin-bottom: 5px; font-weight: 600; color: #334155;">Teléfono de Contacto *</label>
-        <input type="tel" name="Telefono" placeholder="+56 9 1234 5678" required style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px;">
-    </div>
+                <div class="boaxt-field-group">
+                    <label>Tipo de Institución o Empresa</label>
+                    <select name="Tipo_de_Institucion" class="boaxt-select" required>
+                        <option value="" disabled selected>Seleccione el tipo de entidad...</option>
+                        <option value="Municipalidad / Corp. Municipal">Municipalidad / Corporación Municipal</option>
+                        <option value="Ministerio / Servicio Publico">Ministerio / Servicio Público / Hospital</option>
+                        <option value="Empresa Privada / Pyme">Empresa Privada / Pyme</option>
+                        <option value="Otro Tipo de Entidad">Otro Tipo de Entidad</option>
+                    </select>
+                </div>
 
-    <!-- Campo Tipo de Entidad -->
-    <div style="margin-bottom: 15px; text-align: left;">
-        <label style="display: block; margin-bottom: 5px; font-weight: 600; color: #334155;">Tipo de Institución o Empresa *</label>
-        <select name="Tipo_Institucion" required style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff;">
-            <option value="" disabled selected>Seleccione una opción...</option>
-            <option value="Sector Público / Municipalidad">Sector Público / Municipalidad / Servicio</option>
-            <option value="Empresa Privada / Pyme">Empresa Privada / Pyme</option>
-            <option value="Otro">Otro</option>
-        </select>
-    </div>
+                <div class="boaxt-field-group">
+                    <label>Especificaciones o Requerimientos <span style="font-size: 0.8rem; opacity: 0.8;">(Opcional)</span></label>
+                    <textarea name="Mensaje_Requerimiento" class="boaxt-textarea" placeholder="Escriba aquí los insumos, cantidades requeridas o ID de licitación pública..." required></textarea>
+                </div>
 
-    <!-- Campo Mensaje -->
-    <div style="margin-bottom: 20px; text-align: left;">
-        <label style="display: block; margin-bottom: 5px; font-weight: 600; color: #334155;">Detalle de la Cotización o Licitación *</label>
-        <textarea name="Mensaje" rows="4" placeholder="Escriba aquí los productos o servicios que necesita cotizar..." required style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px;"></textarea>
-    </div>
-
-    <!-- Botón -->
-    <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer;">Enviar Cotización</button>
-</form>
+                <button type="submit" class="boaxt-submit-btn">Solicitar Cotización</button>
+            </form>
         </div>
 
-        <div class="boaxt-form-img-container">
-            <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?q=80&w=1200" class="boaxt-form-image" alt="Empaque de pedidos Pyme Multicomercial Araucanía">
+        <!-- Contenedor de Imagen Reajustado -->
+        <div style="display: flex; height: 100%; width: 100%; overflow: hidden;">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200" 
+                 class="boaxt-form-image" 
+                 alt="Almacén y Abastecimiento Logístico" 
+                 style="width: 100%; height: 100%; object-fit: cover; min-height: initial;">
         </div>
     </div>
 
