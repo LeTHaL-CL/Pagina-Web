@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multicomercial Araucanía Limitada | Soluciones para tu Pyme</title>
+    <title>Multicomercial Araucanía Limitada | Suministros y Mercado Público</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -30,7 +30,7 @@
             justify-content: space-between; 
             align-items: center; 
             z-index: 1000;
-            background: rgba(9, 13, 22, 0.6);
+            background: rgba(9, 13, 22, 0.65);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -56,7 +56,7 @@
         }
         .btn-nav:hover { background: #155d97 !important; }
 
-        /* HERO CON FOTOS DE PYMES Y EFECTO DIAPOSITIVA */
+        /* HERO CON FOTOS DE NUESTRA PYME EN ACCIÓN */
         .boaxt-hero-wrapper {
             position: relative;
             width: 100%;
@@ -91,7 +91,7 @@
         }
 
         .slide-item.active {
-            opacity: 0.75;
+            opacity: 0.7;
         }
 
         .hero-overlay {
@@ -100,7 +100,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(9, 13, 22, 0.4), rgba(9, 13, 22, 0.85));
+            background: linear-gradient(to bottom, rgba(9, 13, 22, 0.4), rgba(9, 13, 22, 0.88));
             z-index: 2;
         }
 
@@ -116,10 +116,10 @@
             gap: 40px;
         }
 
-        .boaxt-hero-left { max-width: 700px; }
+        .boaxt-hero-left { max-width: 720px; }
 
         .boaxt-hero-title {
-            font-size: 4rem;
+            font-size: 3.8rem;
             font-weight: 700;
             color: #ffffff;
             line-height: 1.08;
@@ -165,13 +165,12 @@
             .boaxt-hero-right { max-width: 100%; }
         }
 
-        /* SECCIÓN MANIFIESTO CON LA IMAGEN DE CUADRÍCULA SOLICITADA */
+        /* SECCIÓN MANIFIESTO CON LA IMAGEN DE CUADRÍCULA */
         .manifesto-section {
             position: relative;
             width: 100%;
             padding: 180px 5%;
             background-color: #ffffff;
-            /* Se aplica la imagen enviada por el usuario */
             background-image: url('https://cdn.prod.website-files.com/69e06189e1e5e41f5931bf65/69e2f3ba28bbe97219c18c0c_Frame%202147227196.png');
             background-repeat: repeat;
             background-position: center;
@@ -191,18 +190,17 @@
             z-index: 2;
         }
 
-        /* EFECTO EN LAS LETRAS: Inicia con baja opacidad y desenfoque */
+        /* EFECTO DE TRANSPARENCIA PURA (SIN BLUR) QUE SE COMPLETA AL 100% */
         .manifesto-text {
-            font-size: 3.3rem;
+            font-size: 3.2rem;
             font-weight: 400;
             color: #090d16;
             line-height: 1.25;
             letter-spacing: -1.2px;
-            opacity: 0.15;
-            filter: blur(5px);
-            transform: translateY(15px);
-            transition: opacity 0.2s linear, filter 0.2s linear, transform 0.2s linear;
-            will-change: opacity, filter, transform;
+            opacity: 0.15; /* Inicia tenue */
+            transform: translateY(20px);
+            transition: opacity 0.15s ease-out, transform 0.15s ease-out;
+            will-change: opacity, transform;
         }
 
         .manifesto-text strong {
@@ -322,43 +320,40 @@
             <div class="logo">MULTICOMERCIAL <span>ARAUCANÍA</span></div>
         </a>
         <div class="nav-links">
-            <a href="#suministros">Suministros</a>
-            <a href="#sectores">Cómo trabajamos</a>
+            <a href="#suministros">Productos</a>
+            <a href="#sectores">Mercado Público</a>
             <a href="#faq">Preguntas</a>
-            <a href="#cotizar" class="btn-nav">Cotizar Insumos</a>
+            <a href="#cotizar" class="btn-nav">Enviar Requerimiento</a>
         </div>
     </nav>
 
-    <!-- HERO CON FOTOS DE ENFOQUE PYME Y TRANSICIONES CADA 4 SEGUNDOS -->
+    <!-- HERO CON IMÁGENES DE LOGÍSTICA Y MERCADO PÚBLICO -->
     <header class="boaxt-hero-wrapper">
         <div class="hero-slideshow-grid">
-            <!-- Foto 1: Equipo de Pyme trabajando en oficina -->
-            <div class="slide-item active" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920');"></div>
-            <!-- Foto 2: Bodega pequeña/mediana y logística de pymes -->
-            <div class="slide-item" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1920');"></div>
-            <!-- Foto 3: Emprendedores y negocios locales -->
-            <div class="slide-item" style="background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1920');"></div>
+            <div class="slide-item active" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1920');"></div>
+            <div class="slide-item" style="background-image: url('https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=1920');"></div>
+            <div class="slide-item" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920');"></div>
         </div>
         
         <div class="hero-overlay"></div>
 
         <div class="boaxt-hero-container">
             <div class="boaxt-hero-left">
-                <h1 class="boaxt-hero-title">Tu Pyme siempre abastecida, a tiempo y sin complicaciones.</h1>
+                <h1 class="boaxt-hero-title">Tu Pyme aliada en Mercado Público y abastecimiento.</h1>
             </div>
             <div class="boaxt-hero-right">
-                <p class="boaxt-hero-desc">Te acompañamos día a día con los insumos que tu equipo necesita. Atención rápida, trato directo y entregas oportunas para que nunca te detengas.</p>
-                <a href="#cotizar" class="boaxt-hero-btn">Cotiza con Nosotros</a>
+                <p class="boaxt-hero-desc">Somos una Pyme ágil y comprometida. Atendemos requerimientos del Estado y empresas privadas con respuesta inmediata, cumplimiento estricto de OC y entregas oportunas.</p>
+                <a href="#cotizar" class="boaxt-hero-btn">Solicitar Cotización / OC</a>
             </div>
         </div>
     </header>
 
-    <!-- SECCIÓN MANIFIESTO CON IMAGEN DE FONDO Y EFECTO DE LETRAS REVELADAS AL SCROLL -->
+    <!-- SECCIÓN MANIFIESTO CON TRANSPARENCIA PROGRESIVA Y COMPLETA AL SCROLL -->
     <div class="manifesto-section" id="manifestoSection">
         <div class="manifesto-container">
             <p class="manifesto-text" id="manifestoText">
-                Sabemos lo importante que es hacer rendir cada peso en tu negocio. 
-                <span class="highlight">En Multicomercial Araucanía</span> nos volvemos tu aliado de confianza: entregamos rapidez, precios convenientes y la atención humana que tu Pyme merece.
+                Desde <strong>2024</strong>, combinamos la agilidad de una <strong>Pyme cercana</strong> con la responsabilidad que exige 
+                <span class="highlight">Mercado Público</span>. Entregamos insumos esenciales con absoluta transparencia, precios competitivos y atención rápida.
             </p>
         </div>
     </div>
@@ -366,58 +361,58 @@
     <!-- SUMINISTROS -->
     <section id="suministros">
         <div class="section-header">
-            <h2>Lo que tu negocio necesita</h2>
-            <p>Todo en un solo lugar con despacho directo a tus instalaciones.</p>
+            <h2>Líneas de Suministros</h2>
+            <p>Listos para adjudicaciones, compras directas y pedidos institucionales.</p>
         </div>
 
         <div class="grid-square">
             <div class="card-square">
-                <img src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?q=80&w=200" class="img-thumb-square" alt="Aseo Pyme">
+                <img src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?q=80&w=200" class="img-thumb-square" alt="Aseo Institucional">
                 <h4>Aseo e Higiene</h4>
-                <p>Mantén tus espacios limpios y seguros con insumos de gran rendimiento.</p>
+                <p>Insumos institucionales de limpieza, desinfectantes y artículos de alto rendimiento.</p>
             </div>
             <div class="card-square">
-                <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=200" class="img-thumb-square" alt="Oficina Pyme">
+                <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=200" class="img-thumb-square" alt="Oficina">
                 <h4>Oficina y Papelería</h4>
-                <p>Resmas, carpetas, lápices y todo el material para el día a día de tu equipo.</p>
+                <p>Resmas, archivadores, papelería e insumos para la administración pública y privada.</p>
             </div>
             <div class="card-square">
                 <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?q=80&w=200" class="img-thumb-square" alt="Tecnología">
                 <h4>Tecnología y Toners</h4>
-                <p>Tintas, cartuchos y accesorios informáticos sin pagar de más.</p>
+                <p>Consumibles de impresión, tóners originales/compatibles y accesorios de computación.</p>
             </div>
             <div class="card-square">
-                <img src="https://images.unsplash.com/photo-1618042164219-62c820f10723?q=80&w=200" class="img-thumb-square" alt="Protección">
-                <h4>Seguridad y Protección</h4>
-                <p>Cuida a tu personal con implementos EPP esenciales y certificados.</p>
+                <img src="https://images.unsplash.com/photo-1618042164219-62c820f10723?q=80&w=200" class="img-thumb-square" alt="EPP">
+                <h4>Seguridad y EPP</h4>
+                <p>Elementos de protección personal e indumentaria exigida para operaciones e inspección.</p>
             </div>
         </div>
     </section>
 
-    <!-- SECTORES -->
+    <!-- CÓMO TRABAJAMOS -->
     <section id="sectores">
         <div class="section-header">
-            <h2>Soluciones a tu medida</h2>
-            <p>Desplaza hacia abajo para ver cómo nos adaptamos a ti.</p>
+            <h2>Especialistas en Mercado Público</h2>
+            <p>Gestión eficiente de procesos de compra estatales y privados.</p>
         </div>
 
         <div class="reveal-container">
             <div class="sticky-visual">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800" alt="Trabajo en Pymes">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800" alt="Convenio y Mercado Público">
             </div>
 
             <div class="scroll-content">
                 <div class="reveal-item">
-                    <h3>01. Flexibilidad para Pymes</h3>
-                    <p>Entendemos el ritmo de una pequeña o mediana empresa. Te ofrecemos flexibilidad en pedidos, cotizaciones rápidas y facturación transparente.</p>
+                    <h3>01. Órdenes de Compra (OC) y Mercado Público</h3>
+                    <p>Operamos fluidamente en ChileCompra. Aceptamos Órdenes de Compra de Municipalidades, Servicios de Salud, Ministerios y Servicios Públicos.</p>
                 </div>
                 <div class="reveal-item">
-                    <h3>02. Sector Público y Licitaciones</h3>
-                    <p>Si eres parte del sector público o participas en Mercado Público, contamos con la experiencia e infraestructura para responder a cada requerimiento.</p>
+                    <h3>02. Agilidad de Pyme, Trato Directo</h3>
+                    <p>Sin burocracia interna. Al ser una Pyme nos adaptamos rápido a tus urgencias de stock, cotizando y despachando a la brevedad.</p>
                 </div>
                 <div class="reveal-item">
-                    <h3>03. Entrega Cerca de Ti</h3>
-                    <p>Coordinamos la entrega para que recibas todo directo en tu oficina, local o bodega, sin peros ni demoras innecesarias.</p>
+                    <h3>03. Despacho y Entrega Garantizada</h3>
+                    <p>Cuidamos la logística para asegurar que los materiales lleguen en el plazo acordado y en perfectas condiciones a las dependencias solicitadas.</p>
                 </div>
             </div>
         </div>
@@ -426,22 +421,22 @@
     <!-- FAQ -->
     <section id="faq">
         <div class="section-header">
-            <h2>Resuelve tus dudas rápidamente</h2>
-            <p>Haz clic en cada opción para ver la respuesta.</p>
+            <h2>Preguntas Frecuentes</h2>
+            <p>Resolvemos las dudas habituales sobre nuestros procesos.</p>
         </div>
 
         <div class="faq-accordion">
             <details>
-                <summary>¿Tienen montos mínimos de compra para Pymes?</summary>
-                <p>Nos adaptamos a las capacidades de cada negocio. Puedes cotizar desde pedidos pequeños hasta grandes lotes por mayor.</p>
+                <summary>¿Están activos en Mercado Público / ChileCompra?</summary>
+                <p>Sí, estamos registrados como proveedores del Estado y capacitados para recibir y procesar Órdenes de Compra (OC) formales.</p>
             </details>
             <details>
-                <summary>¿Cuánto tardan en enviarme una cotización?</summary>
-                <p>Te responderemos lo antes posible, habitualmente dentro de unas pocas horas hábiles en el mismo día.</p>
+                <summary>¿En cuánto tiempo emiten una cotización oficial?</summary>
+                <p>Como Pyme ágil, entregamos cotizaciones formales para compras directas o licitaciones habitualmente el mismo día.</p>
             </details>
             <details>
-                <summary>¿Emiten factura electrónica?</summary>
-                <p>Sí, emitimos facturas de inmediato para que puedas llevar la contabilidad de tu empresa al día.</p>
+                <summary>¿Atienden también a empresas privadas?</summary>
+                <p>Por supuesto, abastecemos a pymes, locales comerciales e industrias con la misma rapidez y facturación electrónica inmediata.</p>
             </details>
         </div>
     </section>
@@ -449,10 +444,10 @@
     <!-- FORMULARIO DE CONTACTO -->
     <div id="cotizar" class="boaxt-form-section">
         <div class="boaxt-form-content">
-            <h2 class="boaxt-form-title">Hablemos de lo que necesita tu Pyme</h2>
-            <p class="boaxt-form-desc">Déjanos tus datos o la lista de insumos que buscas y te enviaremos un presupuesto con el mejor precio disponible.</p>
+            <h2 class="boaxt-form-title">Envíanos tu requerimiento o Lic. ID</h2>
+            <p class="boaxt-form-desc">Indícanos los insumos que necesitas o el número de Orden de Compra / Licitación y te responderemos inmediatamente.</p>
             
-            <form class="boaxt-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('¡Gracias! Nos pondremos en contacto contigo a la brevedad.');">
+            <form class="boaxt-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('¡Gracias! Hemos recibido tu solicitud y te responderemos a la brevedad.');">
                 <div class="boaxt-form-row">
                     <div class="boaxt-field-group">
                         <label>Nombre</label>
@@ -467,7 +462,7 @@
                 <div class="boaxt-form-row">
                     <div class="boaxt-field-group">
                         <label>Correo Electrónico</label>
-                        <input type="email" class="boaxt-input" placeholder="tu@empresa.cl" required>
+                        <input type="email" class="boaxt-input" placeholder="nombre@institucion.cl" required>
                     </div>
                     <div class="boaxt-field-group">
                         <label>Teléfono o WhatsApp</label>
@@ -476,27 +471,26 @@
                 </div>
 
                 <div class="boaxt-field-group">
-                    <label>Tipo de Empresa / Organización</label>
+                    <label>Tipo de Entidad</label>
                     <select class="boaxt-select" required>
-                        <option value="" disabled selected>Selecciona una opción...</option>
-                        <option value="pyme">Pequeña / Mediana Empresa (Pyme)</option>
-                        <option value="independiente">Emprendedor / Profesional Independiente</option>
-                        <option value="publico">Institución Pública / Licitación</option>
+                        <option value="" disabled selected>Selecciona tu tipo de organización...</option>
+                        <option value="publico">Institución Pública / Municipalidad / Hospital</option>
+                        <option value="pyme">Empresa Privada / Pyme</option>
                         <option value="otro">Otro</option>
                     </select>
                 </div>
 
                 <div class="boaxt-field-group">
-                    <label>¿Qué productos necesitas cotizar?</label>
-                    <textarea class="boaxt-textarea" placeholder="Escribe aquí los insumos, cantidades o comentarios sobre tu requerimiento..."></textarea>
+                    <label>Detalle de Insumos o ID Mercado Público</label>
+                    <textarea class="boaxt-textarea" placeholder="Escribe los insumos requeridos, cantidades o ID de la licitación/compra..."></textarea>
                 </div>
 
-                <button type="submit" class="boaxt-submit-btn">Enviar Cotización</button>
+                <button type="submit" class="boaxt-submit-btn">Enviar Requerimiento</button>
             </form>
         </div>
 
         <div>
-            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1200" class="boaxt-form-image" alt="Atención a Pymes">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200" class="boaxt-form-image" alt="Bodega y Logística Pyme">
         </div>
     </div>
 
@@ -510,11 +504,11 @@
                 <span class="boaxt-brand-title">MULTICOMERCIAL ARAUCANÍA LIMITADA</span>
             </div>
 
-            <h2 class="boaxt-main-heading">Tu aliado cercano en abastecimiento</h2>
+            <h2 class="boaxt-main-heading">Tu Pyme proveedora de confianza</h2>
 
             <div class="boaxt-grid">
                 <div class="boaxt-col">
-                    <div class="boaxt-col-label">Ubicación</div>
+                    <div class="boaxt-col-label">Ubicación Matriz</div>
                     <div class="boaxt-col-value">
                         Región de La Araucanía<br>Chile
                     </div>
@@ -537,7 +531,7 @@
 
             <div class="boaxt-bottom-bar">
                 <div class="boaxt-legal-links">
-                    <a href="#">Términos de Uso</a>
+                    <a href="#">Términos</a>
                     <a href="#">Privacidad</a>
                     <a href="#">Mercado Público</a>
                 </div>
@@ -550,7 +544,7 @@
 
     <!-- INTERACTIVIDAD JS -->
     <script>
-        // 1. Carrusel de imágenes (PowerPoint / Slide Effect)
+        // 1. Carrusel de fotos
         const slides = document.querySelectorAll('.slide-item');
         let currentSlide = 0;
 
@@ -560,7 +554,7 @@
             slides[currentSlide].classList.add('active');
         }, 4000);
 
-        // 2. EFECTO REVELADO DE TEXTO AL BAJAR EL CURSOR (SCROLL PROGRESIVO)
+        // 2. EFECTO DE TRANSPARENCIA RÁPIDO Y 100% COMPLETADO
         const manifestoSection = document.getElementById('manifestoSection');
         const manifestoText = document.getElementById('manifestoText');
 
@@ -568,19 +562,19 @@
             const rect = manifestoSection.getBoundingClientRect();
             const windowHeight = window.innerHeight;
 
-            // Calcula qué tan visible está la sección en pantalla (0 a 1)
+            // Se activa tan pronto como el borde superior entra a la pantalla
             if (rect.top < windowHeight && rect.bottom > 0) {
-                // Progreso del desplazamiento sobre la sección
-                let progress = (windowHeight - rect.top) / (windowHeight + rect.height * 0.5);
-                progress = Math.min(Math.max(progress, 0), 1); // Limitar entre 0 y 1
+                // Multiplicador acelerado para que llegue a 1.0 (100% visible) mucho antes
+                let progress = (windowHeight - rect.top) / (windowHeight * 0.45);
+                
+                // Asegurar que el rango sea de 0.15 a 1.0 (Totalmente claro)
+                let opacity = 0.15 + (progress * 0.85);
+                if (opacity > 1) opacity = 1;
 
-                // Mapear el progreso a opacidad, desenfoque y posición
-                const opacity = 0.15 + (progress * 0.85); // De 0.15 a 1.0
-                const blur = 5 - (progress * 5);          // De 5px a 0px
-                const translateY = 15 - (progress * 15);   // De 15px a 0px
+                let translateY = 20 - (progress * 20);
+                if (translateY < 0) translateY = 0;
 
                 manifestoText.style.opacity = opacity;
-                manifestoText.style.filter = `blur(${blur}px)`;
                 manifestoText.style.transform = `translateY(${translateY}px)`;
             }
         });
