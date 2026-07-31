@@ -20,7 +20,7 @@
         }
 
         /* ============================================================ */
-        /* NAVEGACIÓN Y HERO ESTILO BOAXT (PANTALLA COMPLETA)           */
+        /* NAVEGACIÓN Y HERO ESTILO BOAXT CON VÍDEO                     */
         /* ============================================================ */
         
         /* Navegación BOAXT */
@@ -60,20 +60,41 @@
         }
         .btn-nav:hover { background: #155d97 !important; }
 
-        /* Hero BOAXT */
+        /* Hero BOAXT con Vídeo de Fondo */
         .boaxt-hero-wrapper {
             position: relative;
             width: 100%;
             height: 100vh;
             min-height: 650px;
-            background: linear-gradient(to bottom, rgba(9, 13, 22, 0.5), rgba(9, 13, 22, 0.8)), 
-                        url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1920') no-repeat center center/cover;
             display: flex;
             align-items: flex-end;
             padding: 0 5% 70px 5%;
+            overflow: hidden;
+        }
+
+        .hero-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(9, 13, 22, 0.55), rgba(9, 13, 22, 0.85));
+            z-index: 2;
         }
 
         .boaxt-hero-container {
+            position: relative;
+            z-index: 3;
             width: 100%;
             max-width: 1280px;
             margin: 0 auto;
@@ -85,23 +106,6 @@
 
         .boaxt-hero-left {
             max-width: 700px;
-        }
-
-        .boaxt-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(28, 121, 196, 0.25);
-            border: 1px solid #1C79C4;
-            color: #60a5fa;
-            padding: 6px 14px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            backdrop-filter: blur(4px);
         }
 
         .boaxt-hero-title {
@@ -503,14 +507,18 @@
         </div>
     </nav>
 
-    <!-- HERO FULLSCREEN ESTILO BOAXT -->
+    <!-- HERO FULLSCREEN ESTILO BOAXT CON VÍDEO EN BUCLE -->
     <header class="boaxt-hero-wrapper">
+        <!-- Vídeo de fondo en bucle (Logística / Almacén / Distribución) -->
+        <video class="hero-video-bg" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1920">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-large-warehouse-with-goods-and-a-forklift-40118-large.mp4" type="video/mp4">
+        </video>
+        
+        <!-- Capa semitransparente para legibilidad -->
+        <div class="hero-overlay"></div>
+
         <div class="boaxt-hero-container">
             <div class="boaxt-hero-left">
-                <div class="boaxt-badge">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4z"/></svg>
-                    Proveedor Mercado Público
-                </div>
                 <h1 class="boaxt-hero-title">Abastecimiento integral y suministro continuo.</h1>
             </div>
             <div class="boaxt-hero-right">
@@ -603,9 +611,7 @@
         </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- FORMULARIO ESTILO BOAXT (#1C79C4 Y EN ESPAÑOL)               -->
-    <!-- ============================================================ -->
+    <!-- FORMULARIO ESTILO BOAXT (#1C79C4 Y EN ESPAÑOL) -->
     <div id="cotizar" class="boaxt-form-section">
         <div class="boaxt-form-content">
             <h2 class="boaxt-form-title">¿Listo para Abastecer su Organización?</h2>
@@ -660,9 +666,7 @@
         </div>
     </div>
 
-    <!-- ============================================================ -->
-    <!-- FOOTER / CONTACTO EN OSCURO                                 -->
-    <!-- ============================================================ -->
+    <!-- FOOTER / CONTACTO EN OSCURO -->
     <footer class="boaxt-footer-section" id="contacto">
         <div class="boaxt-container">
             
