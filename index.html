@@ -6,7 +6,7 @@
     <title>Multicomercial Araucanía Limitada | Soluciones de Abastecimiento</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         /* RESET & BASE */
@@ -70,14 +70,18 @@
             align-items: flex-end;
             padding: 0 5% 70px 5%;
             overflow: hidden;
+            background-color: #090d16;
         }
 
         .hero-video-bg {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
             object-fit: cover;
             z-index: 1;
         }
@@ -88,7 +92,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(9, 13, 22, 0.55), rgba(9, 13, 22, 0.85));
+            background: linear-gradient(to bottom, rgba(9, 13, 22, 0.6), rgba(9, 13, 22, 0.88));
             z-index: 2;
         }
 
@@ -156,6 +160,56 @@
             .boaxt-hero-container { flex-direction: column; align-items: flex-start; gap: 30px; }
             .boaxt-hero-title { font-size: 3rem; }
             .boaxt-hero-right { max-width: 100%; }
+        }
+
+        /* ============================================================ */
+        /* SECCIÓN MANIFIESTO Y GRID PATTERN (ESTILO IMAGEN REQUERIDA)  */
+        /* ============================================================ */
+        .manifesto-section {
+            position: relative;
+            width: 100%;
+            padding: 140px 5%;
+            background-color: #fbfbfc;
+            /* Patrón de cuadrícula tenue estilo gráfico/arquitectónico */
+            background-image: 
+                linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+            background-size: 50px 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .manifesto-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .manifesto-text {
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            line-height: 1.35;
+            letter-spacing: -0.5px;
+        }
+
+        .manifesto-text strong {
+            font-weight: 700;
+            color: #090d16;
+        }
+
+        .manifesto-text span.highlight {
+            color: #1C79C4;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .manifesto-section { padding: 90px 6%; background-size: 30px 30px; }
+            .manifesto-text { font-size: 1.5rem; line-height: 1.4; }
         }
 
 
@@ -509,9 +563,9 @@
 
     <!-- HERO FULLSCREEN ESTILO BOAXT CON VÍDEO EN BUCLE -->
     <header class="boaxt-hero-wrapper">
-        <!-- Vídeo de fondo en bucle (Logística / Almacén / Distribución) -->
+        <!-- Vídeo CDN directo optimizado en MP4 -->
         <video class="hero-video-bg" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1920">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-large-warehouse-with-goods-and-a-forklift-40118-large.mp4" type="video/mp4">
+            <source src="https://cdn.coverr.co/videos/coverr-a-worker-organizing-boxes-in-a-warehouse-5178/1080p.mp4" type="video/mp4">
         </video>
         
         <!-- Capa semitransparente para legibilidad -->
@@ -527,6 +581,16 @@
             </div>
         </div>
     </header>
+
+    <!-- NUEVA SECCIÓN ESTILO GRID PATTERN CON DECLARACIÓN DE COMPROMISO -->
+    <div class="manifesto-section">
+        <div class="manifesto-container">
+            <p class="manifesto-text">
+                Desde <strong>2024</strong>, la efectividad operativa es nuestra norma. 
+                <span class="highlight">Multicomercial Araucanía</span> impulsa el abastecimiento integral del sector público con transparencia rigurosa, cumplimiento estricto y disponibilidad garantizada en cada proceso.
+            </p>
+        </div>
+    </div>
 
     <!-- SUMINISTROS (TARJETAS CUADRADAS) -->
     <section id="suministros">
